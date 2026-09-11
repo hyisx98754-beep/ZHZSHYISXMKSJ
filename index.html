@@ -1,0 +1,2859 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ZHZSHYISXMKSJ</title>
+
+    <style>
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+            --bg: #080a0d;
+            --bg-secondary: #0d1014;
+            --panel: #11151a;
+            --panel-2: #151a20;
+            --panel-hover: #1a2028;
+            --border: #252c35;
+            --border-light: #313a45;
+
+            --text: #f3f5f7;
+            --text-secondary: #9ba3ad;
+            --text-muted: #68717c;
+
+            --white: #ffffff;
+            --black: #000000;
+
+            --danger: #e35d6a;
+            --danger-dark: #a63844;
+
+            --success: #55c58a;
+            --warning: #d8aa55;
+
+            --radius-small: 9px;
+            --radius: 13px;
+            --radius-large: 18px;
+
+            --sidebar-width: 250px;
+            --topbar-height: 70px;
+        }
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        ::selection {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* =========================================================
+           GLOBAL UTILITIES
+        ========================================================= */
+
+        .hidden {
+            display: none !important;
+        }
+
+        .screen {
+            min-height: 100vh;
+        }
+
+        .muted {
+            color: var(--text-muted);
+        }
+
+        .secondary {
+            color: var(--text-secondary);
+        }
+
+        .danger-text {
+            color: var(--danger);
+        }
+
+        .success-text {
+            color: var(--success);
+        }
+
+        /* =========================================================
+           LOGIN
+        ========================================================= */
+
+        #loginScreen {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #151a21 0%,
+                    #080a0d 48%,
+                    #050608 100%
+                );
+        }
+
+        .login-shell {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .login-box {
+            width: 100%;
+
+            background: rgba(17, 21, 26, 0.94);
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+
+            padding: 38px;
+
+            box-shadow:
+                0 35px 90px rgba(0, 0, 0, 0.55),
+                inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .login-brand {
+            text-align: center;
+            margin-bottom: 34px;
+        }
+
+        .login-brand h1 {
+            font-size: 43px;
+            letter-spacing: 8px;
+            font-weight: 850;
+        }
+
+        .login-brand p {
+            color: var(--text-secondary);
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .field {
+            margin-bottom: 15px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .text-input {
+            width: 100%;
+
+            border: 1px solid var(--border);
+
+            background: #0a0d10;
+
+            color: var(--text);
+
+            border-radius: var(--radius);
+
+            padding: 14px 15px;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s,
+                background 0.2s;
+        }
+
+        .text-input:focus {
+            border-color: var(--border-light);
+            background: #0d1115;
+        }
+
+        .primary-button {
+            width: 100%;
+
+            border: none;
+
+            border-radius: var(--radius);
+
+            background: var(--white);
+            color: var(--black);
+
+            padding: 14px 18px;
+
+            font-weight: 750;
+
+            transition:
+                transform 0.15s,
+                opacity 0.15s;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-1px);
+            opacity: 0.92;
+        }
+
+        .primary-button:active {
+            transform: translateY(0);
+        }
+
+        .login-message {
+            min-height: 21px;
+
+            margin-top: 15px;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            color: var(--danger);
+        }
+
+        /* =========================================================
+           APP LAYOUT
+        ========================================================= */
+
+        #app {
+            display: none;
+
+            min-height: 100vh;
+
+            background: var(--bg);
+        }
+
+        .app-layout {
+            min-height: 100vh;
+
+            display: flex;
+        }
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+            position: fixed;
+
+            left: 0;
+            top: 0;
+            bottom: 0;
+
+            width: var(--sidebar-width);
+
+            display: flex;
+            flex-direction: column;
+
+            background: #0b0e12;
+
+            border-right: 1px solid var(--border);
+
+            z-index: 50;
+        }
+
+        .sidebar-brand {
+            height: var(--topbar-height);
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 24px;
+
+            border-bottom: 1px solid var(--border);
+
+            font-size: 22px;
+            font-weight: 850;
+            letter-spacing: 4px;
+        }
+
+        .sidebar-nav {
+            padding: 18px 12px;
+        }
+
+        .nav-item {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            border: 1px solid transparent;
+
+            background: transparent;
+
+            color: var(--text-secondary);
+
+            padding: 12px 13px;
+
+            border-radius: 11px;
+
+            margin-bottom: 5px;
+
+            text-align: left;
+
+            transition:
+                background 0.18s,
+                color 0.18s,
+                border-color 0.18s;
+        }
+
+        .nav-item:hover {
+            background: var(--panel);
+            color: var(--text);
+        }
+
+        .nav-item.active {
+            background: var(--panel-2);
+            border-color: var(--border);
+            color: var(--text);
+        }
+
+        .nav-icon {
+            width: 28px;
+            height: 28px;
+
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #181e25;
+
+            color: var(--text-secondary);
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .sidebar-bottom {
+            margin-top: auto;
+
+            padding: 14px 12px;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .user-box {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 10px;
+
+            border-radius: 11px;
+
+            background: #101419;
+
+            border: 1px solid var(--border);
+
+            margin-bottom: 10px;
+        }
+
+        .user-avatar {
+            width: 33px;
+            height: 33px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #ffffff;
+            color: #000000;
+
+            border-radius: 9px;
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .user-info {
+            overflow: hidden;
+        }
+
+        .user-info strong {
+            display: block;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            font-size: 13px;
+        }
+
+        .user-info span {
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        .logout-button {
+            width: 100%;
+
+            border: 1px solid var(--border);
+
+            background: transparent;
+
+            color: var(--text-secondary);
+
+            border-radius: 10px;
+
+            padding: 10px;
+
+            transition:
+                background 0.18s,
+                color 0.18s;
+        }
+
+        .logout-button:hover {
+            background: var(--panel);
+            color: var(--text);
+        }
+
+        /* =========================================================
+           MAIN AREA
+        ========================================================= */
+
+        .main-area {
+            width: calc(100% - var(--sidebar-width));
+
+            margin-left: var(--sidebar-width);
+
+            min-height: 100vh;
+        }
+
+        .topbar {
+            position: sticky;
+
+            top: 0;
+
+            height: var(--topbar-height);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 28px;
+
+            background: rgba(8, 10, 13, 0.92);
+
+            border-bottom: 1px solid var(--border);
+
+            backdrop-filter: blur(15px);
+
+            z-index: 40;
+        }
+
+        .page-title {
+            font-size: 18px;
+            font-weight: 750;
+        }
+
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .small-button {
+            border: 1px solid var(--border);
+
+            background: var(--panel);
+
+            color: var(--text-secondary);
+
+            border-radius: 9px;
+
+            padding: 9px 13px;
+
+            transition:
+                background 0.18s,
+                color 0.18s;
+        }
+
+        .small-button:hover {
+            background: var(--panel-hover);
+            color: var(--text);
+        }
+
+        .content {
+            padding: 32px;
+
+            max-width: 1500px;
+
+            margin: 0 auto;
+        }
+
+        /* =========================================================
+           HOME
+        ========================================================= */
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            gap: 25px;
+
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.05;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .feature-card {
+            border: 1px solid var(--border);
+
+            background: linear-gradient(
+                145deg,
+                #12161b,
+                #0d1014
+            );
+
+            border-radius: var(--radius-large);
+
+            padding: 24px;
+
+            transition:
+                border-color 0.18s,
+                transform 0.18s,
+                background 0.18s;
+
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-light);
+            background: linear-gradient(
+                145deg,
+                #171c22,
+                #101419
+            );
+        }
+
+        .feature-card.large {
+            min-height: 185px;
+        }
+
+        .feature-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 15px;
+
+            margin-bottom: 30px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 13px;
+        }
+
+        .section-heading h2 {
+            font-size: 18px;
+        }
+
+        .shortcut-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fill, minmax(180px, 1fr));
+
+            gap: 12px;
+        }
+
+        .shortcut-card {
+            position: relative;
+
+            border: 1px solid var(--border);
+
+            background: var(--panel);
+
+            border-radius: 14px;
+
+            padding: 17px;
+
+            min-height: 115px;
+
+            cursor: pointer;
+
+            transition: 0.18s;
+        }
+
+        .shortcut-card:hover {
+            background: var(--panel-hover);
+            border-color: var(--border-light);
+        }
+
+        .shortcut-name {
+            font-weight: 750;
+            margin-bottom: 8px;
+        }
+
+        .shortcut-url {
+            color: var(--text-muted);
+            font-size: 12px;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .shortcut-options {
+            position: absolute;
+            top: 9px;
+            right: 9px;
+
+            display: flex;
+            gap: 4px;
+        }
+
+        .icon-button {
+            width: 30px;
+            height: 30px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--border);
+
+            background: #101419;
+
+            color: var(--text-secondary);
+
+            border-radius: 8px;
+        }
+
+        .icon-button:hover {
+            background: var(--panel-hover);
+            color: var(--text);
+        }
+
+        .icon-button.danger:hover {
+            color: #ffffff;
+            background: var(--danger-dark);
+        }
+
+        /* =========================================================
+           BAM
+        ========================================================= */
+
+        .bam-shell {
+            min-height: calc(100vh - var(--topbar-height));
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bam-toolbar {
+            display: flex;
+
+            gap: 9px;
+
+            padding: 20px 24px;
+
+            border-bottom: 1px solid var(--border);
+
+            background: #0c0f13;
+        }
+
+        .bam-input {
+            flex: 1;
+
+            min-width: 0;
+
+            border: 1px solid var(--border);
+
+            background: #090c0f;
+
+            color: var(--text);
+
+            padding: 13px 15px;
+
+            border-radius: 11px;
+
+            outline: none;
+        }
+
+        .bam-input:focus {
+            border-color: var(--border-light);
+        }
+
+        .bam-go {
+            border: none;
+
+            background: var(--white);
+
+            color: var(--black);
+
+            border-radius: 11px;
+
+            padding: 0 23px;
+
+            font-weight: 800;
+        }
+
+        .bam-tabs {
+            display: flex;
+
+            gap: 6px;
+
+            padding: 12px 24px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .bam-tab {
+            border: 1px solid transparent;
+
+            background: transparent;
+
+            color: var(--text-secondary);
+
+            padding: 8px 11px;
+
+            border-radius: 8px;
+        }
+
+        .bam-tab.active {
+            background: var(--panel);
+
+            border-color: var(--border);
+
+            color: var(--text);
+        }
+
+        .bam-frame-wrap {
+            position: relative;
+
+            flex: 1;
+
+            min-height: 650px;
+
+            background: #050608;
+        }
+
+        #bamFrame {
+            width: 100%;
+            height: 100%;
+            min-height: 650px;
+
+            display: none;
+
+            border: 0;
+
+            background: #ffffff;
+        }
+
+        .bam-empty {
+            min-height: 650px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+        }
+
+        .bam-empty-box {
+            max-width: 560px;
+
+            text-align: center;
+        }
+
+        .bam-empty-box h2 {
+            font-size: 31px;
+            margin-bottom: 12px;
+        }
+
+        .bam-empty-box p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .bam-warning {
+            margin-top: 22px;
+
+            display: inline-block;
+
+            border: 1px solid var(--border);
+
+            background: var(--panel);
+
+            padding: 11px 14px;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+
+            color: var(--text-secondary);
+        }
+
+        /* =========================================================
+           CHAT
+        ========================================================= */
+
+        .chat-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fill, minmax(210px, 1fr));
+
+            gap: 14px;
+        }
+
+        .chat-selector {
+            border: 1px solid var(--border);
+
+            background: var(--panel);
+
+            border-radius: 15px;
+
+            padding: 21px;
+
+            text-align: left;
+
+            color: var(--text);
+
+            transition: 0.18s;
+        }
+
+        .chat-selector:hover {
+            background: var(--panel-hover);
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+        }
+
+        .chat-selector h3 {
+            margin-bottom: 8px;
+        }
+
+        .chat-selector p {
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .chat-protection {
+            display: inline-block;
+
+            margin-top: 14px;
+
+            color: var(--text-muted);
+
+            font-size: 11px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 7px;
+
+            padding: 5px 7px;
+        }
+
+        .chat-window {
+            height: calc(100vh - 134px);
+
+            display: flex;
+            flex-direction: column;
+
+            border: 1px solid var(--border);
+
+            background: #0a0d10;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+        }
+
+        .chat-header {
+            min-height: 64px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 16px;
+
+            border-bottom: 1px solid var(--border);
+
+            background: #101419;
+        }
+
+        .chat-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-title {
+            font-weight: 800;
+        }
+
+        .chat-status {
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        .chat-tools {
+            display: flex;
+            gap: 7px;
+        }
+
+        .messages {
+            flex: 1;
+
+            overflow-y: auto;
+
+            padding: 20px;
+        }
+
+        .message-row {
+            display: flex;
+
+            margin-bottom: 13px;
+        }
+
+        .message-row.mine {
+            justify-content: flex-end;
+        }
+
+        .message {
+            max-width: min(720px, 85%);
+
+            border: 1px solid var(--border);
+
+            background: var(--panel);
+
+            border-radius: 14px;
+
+            padding: 11px 13px;
+
+            position: relative;
+        }
+
+        .message.mine {
+            background: #181e25;
+        }
+
+        .message-author {
+            font-size: 11px;
+
+            color: var(--text-muted);
+
+            margin-bottom: 5px;
+        }
+
+        .message-text {
+            white-space: pre-wrap;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+        }
+
+        .message-time {
+            font-size: 10px;
+
+            color: var(--text-muted);
+
+            margin-top: 7px;
+
+            text-align: right;
+        }
+
+        .message-image {
+            display: block;
+
+            max-width: 360px;
+
+            max-height: 360px;
+
+            object-fit: contain;
+
+            border-radius: 9px;
+
+            margin-top: 7px;
+        }
+
+        .message-delete {
+            position: absolute;
+
+            top: 7px;
+            right: 7px;
+
+            opacity: 0;
+
+            width: 27px;
+            height: 27px;
+
+            border: 1px solid var(--border);
+
+            background: #0e1115;
+
+            color: var(--text-secondary);
+
+            border-radius: 7px;
+
+            transition: opacity 0.15s;
+        }
+
+        .message:hover .message-delete {
+            opacity: 1;
+        }
+
+        .chat-composer {
+            border-top: 1px solid var(--border);
+
+            background: #0c0f13;
+
+            padding: 12px;
+        }
+
+        .attachment-preview {
+            display: none;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 10px;
+
+            padding: 8px 10px;
+
+            margin-bottom: 9px;
+
+            border: 1px solid var(--border);
+
+            background: var(--panel);
+
+            border-radius: 9px;
+
+            font-size: 12px;
+        }
+
+        .composer-row {
+            display: flex;
+
+            align-items: flex-end;
+
+            gap: 8px;
+        }
+
+        .composer-input {
+            flex: 1;
+
+            min-height: 45px;
+            max-height: 150px;
+
+            resize: vertical;
+
+            border: 1px solid var(--border);
+
+            background: #090c0f;
+
+            color: var(--text);
+
+            border-radius: 11px;
+
+            padding: 12px 13px;
+
+            outline: none;
+        }
+
+        .composer-input:focus {
+            border-color: var(--border-light);
+        }
+
+        .composer-button {
+            min-width: 45px;
+            height: 45px;
+
+            border: 1px solid var(--border);
+
+            background: var(--panel);
+
+            color: var(--text);
+
+            border-radius: 11px;
+        }
+
+        .composer-button:hover {
+            background: var(--panel-hover);
+        }
+
+        .composer-send {
+            border: none;
+
+            background: var(--white);
+
+            color: var(--black);
+
+            font-weight: 800;
+
+            padding: 0 17px;
+        }
+
+        #imageInput {
+            display: none;
+        }
+
+        /* =========================================================
+           FOLDERS
+        ========================================================= */
+
+        .folder-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fill, minmax(220px, 1fr));
+
+            gap: 14px;
+        }
+
+        .folder-card {
+            position: relative;
+
+            min-height: 155px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            padding: 20px;
+
+            border: 1px solid var(--border);
+
+            background: var(--panel);
+
+            border-radius: 15px;
+
+            transition: 0.18s;
+        }
+
+        .folder-card:hover {
+            border-color: var(--border-light);
+            background: var(--panel-hover);
+            transform: translateY(-2px);
+        }
+
+        .folder-top {
+            display: flex;
+
+            align-items: flex-start;
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+        .folder-number {
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        .folder-name {
+            font-size: 17px;
+            font-weight: 800;
+
+            margin-top: 8px;
+        }
+
+        .folder-state {
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        .folder-actions {
+            display: flex;
+
+            gap: 7px;
+        }
+
+        /* =========================================================
+           MODALS
+        ========================================================= */
+
+        .modal-backdrop {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 200;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background: rgba(0, 0, 0, 0.72);
+
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-backdrop.active {
+            display: flex;
+        }
+
+        .modal {
+            width: 100%;
+            max-width: 490px;
+
+            border: 1px solid var(--border);
+
+            background: #11151a;
+
+            border-radius: 18px;
+
+            padding: 24px;
+
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        .modal.large {
+            max-width: 700px;
+        }
+
+        .modal h2 {
+            margin-bottom: 8px;
+        }
+
+        .modal p {
+            color: var(--text-secondary);
+
+            font-size: 13px;
+
+            line-height: 1.55;
+
+            margin-bottom: 20px;
+        }
+
+        .modal-actions {
+            display: flex;
+
+            justify-content: flex-end;
+
+            gap: 8px;
+
+            margin-top: 20px;
+        }
+
+        .secondary-button {
+            border: 1px solid var(--border);
+
+            background: var(--panel);
+
+            color: var(--text);
+
+            border-radius: 10px;
+
+            padding: 10px 14px;
+        }
+
+        .danger-button {
+            border: 1px solid var(--danger-dark);
+
+            background: #34151a;
+
+            color: #ffffff;
+
+            border-radius: 10px;
+
+            padding: 10px 14px;
+        }
+
+        /* =========================================================
+           TOAST
+        ========================================================= */
+
+        #toastContainer {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            z-index: 500;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+            width: min(360px, calc(100vw - 40px));
+        }
+
+        .toast {
+            border: 1px solid var(--border);
+
+            background: #11151a;
+
+            color: var(--text);
+
+            border-radius: 11px;
+
+            padding: 12px 14px;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+
+            font-size: 13px;
+
+            animation: toastIn 0.2s ease;
+        }
+
+        @keyframes toastIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1050px) {
+
+            :root {
+                --sidebar-width: 210px;
+            }
+
+            .feature-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 760px) {
+
+            :root {
+                --sidebar-width: 0px;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .main-area {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .content {
+                padding: 20px 15px;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .quick-actions {
+                justify-content: flex-start;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bam-toolbar {
+                flex-direction: column;
+            }
+
+            .bam-go {
+                min-height: 45px;
+            }
+
+            .chat-window {
+                height: calc(100vh - 120px);
+            }
+
+            .topbar {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .login-box {
+                padding: 25px;
+            }
+
+            .login-brand h1 {
+                font-size: 34px;
+            }
+
+            .message {
+                max-width: 92%;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         LOGIN
+    ========================================================== -->
+
+    <section id="loginScreen" class="screen">
+
+        <div class="login-shell">
+
+            <div class="login-box">
+
+                <div class="login-brand">
+
+                    <h1>BAM</h1>
+
+                    <p>
+                        Acceso privado
+                    </p>
+
+                </div>
+
+
+                <form id="loginForm">
+
+                    <div class="field">
+
+                        <label for="loginEmail">
+                            Correo
+                        </label>
+
+                        <input
+                            id="loginEmail"
+                            class="text-input"
+                            type="email"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="loginPassword">
+                            Contraseña
+                        </label>
+
+                        <input
+                            id="loginPassword"
+                            class="text-input"
+                            type="password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Entrar
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="loginMessage"
+                    class="login-message"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         APP
+    ========================================================== -->
+
+    <section id="app">
+
+        <div class="app-layout">
+
+            <!-- SIDEBAR -->
+
+            <aside class="sidebar">
+
+                <div class="sidebar-brand">
+                    BAM
+                </div>
+
+
+                <nav class="sidebar-nav">
+
+                    <button
+                        class="nav-item active"
+                        data-page="home"
+                        onclick="showPage('home')"
+                    >
+                        <span class="nav-icon">IN</span>
+                        <span>Inicio</span>
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-page="bam"
+                        onclick="showPage('bam')"
+                    >
+                        <span class="nav-icon">BA</span>
+                        <span>BAM</span>
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-page="chats"
+                        onclick="showPage('chats')"
+                    >
+                        <span class="nav-icon">CH</span>
+                        <span>Chats</span>
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-page="folders"
+                        onclick="showPage('folders')"
+                    >
+                        <span class="nav-icon">CA</span>
+                        <span>Carpetas</span>
+                    </button>
+
+                </nav>
+
+
+                <div class="sidebar-bottom">
+
+                    <div class="user-box">
+
+                        <div class="user-avatar">
+                            ?
+                        </div>
+
+                        <div class="user-info">
+
+                            <strong>
+                                Desconocido
+                            </strong>
+
+                            <span id="accountEmail">
+                                Cuenta activa
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="logout-button"
+                        onclick="logoutUser()"
+                    >
+                        Cerrar sesión
+                    </button>
+
+                </div>
+
+            </aside>
+
+
+            <!-- MAIN -->
+
+            <main class="main-area">
+
+                <!-- TOPBAR -->
+
+                <header class="topbar">
+
+                    <div
+                        id="pageTitle"
+                        class="page-title"
+                    >
+                        Inicio
+                    </div>
+
+
+                    <div class="topbar-actions">
+
+                        <button
+                            class="small-button"
+                            onclick="showShortcutModal()"
+                        >
+                            Nuevo acceso
+                        </button>
+
+                    </div>
+
+                </header>
+
+
+                <!-- =================================================
+                     HOME
+                ================================================== -->
+
+                <section
+                    id="page-home"
+                    class="page content"
+                >
+
+                    <div class="hero">
+
+                        <div>
+
+                            <h1>
+                                Inicio
+                            </h1>
+
+                            <p>
+                                Usuario:
+                                <strong>Desconocido</strong>
+                            </p>
+
+                        </div>
+
+
+                        <div class="quick-actions">
+
+                            <button
+                                class="small-button"
+                                onclick="showPage('bam')"
+                            >
+                                Abrir BAM
+                            </button>
+
+                            <button
+                                class="small-button"
+                                onclick="showPage('chats')"
+                            >
+                                Abrir chats
+                            </button>
+
+                            <button
+                                class="small-button"
+                                onclick="showPage('folders')"
+                            >
+                                Abrir carpetas
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-grid">
+
+                        <div
+                            class="feature-card large"
+                            onclick="showPage('bam')"
+                        >
+
+                            <h3>
+                                BAM
+                            </h3>
+
+                            <p>
+                                Busca direcciones web y abre páginas
+                                compatibles dentro de la interfaz.
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="feature-card large"
+                            onclick="showPage('chats')"
+                        >
+
+                            <h3>
+                                Chats
+                            </h3>
+
+                            <p>
+                                Accede a los cinco chats configurados
+                                y conserva sus mensajes mediante Firebase.
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="feature-card large"
+                            onclick="showPage('folders')"
+                        >
+
+                            <h3>
+                                Carpetas
+                            </h3>
+
+                            <p>
+                                Diez carpetas modificables,
+                                con cinco espacios protegidos.
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="feature-card large"
+                            onclick="showShortcutModal()"
+                        >
+
+                            <h3>
+                                Accesos directos
+                            </h3>
+
+                            <p>
+                                Crea tus propios accesos y
+                                organízalos desde el inicio.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Accesos directos
+                        </h2>
+
+                        <button
+                            class="small-button"
+                            onclick="showShortcutModal()"
+                        >
+                            Crear
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="shortcutGrid"
+                        class="shortcut-grid"
+                    ></div>
+
+                </section>
+
+
+                <!-- =================================================
+                     BAM
+                ================================================== -->
+
+                <section
+                    id="page-bam"
+                    class="page hidden"
+                >
+
+                    <div class="bam-shell">
+
+                        <div class="bam-toolbar">
+
+                            <button
+                                class="small-button"
+                                onclick="bamBack()"
+                            >
+                                Atrás
+                            </button>
+
+                            <button
+                                class="small-button"
+                                onclick="bamForward()"
+                            >
+                                Adelante
+                            </button>
+
+                            <input
+                                id="bamInput"
+                                class="bam-input"
+                                type="text"
+                                placeholder="Buscar o introducir una dirección web"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                class="bam-go"
+                                onclick="useBAM()"
+                            >
+                                Buscar
+                            </button>
+
+                        </div>
+
+
+                        <div class="bam-tabs">
+
+                            <button
+                                id="bamDirectTab"
+                                class="bam-tab active"
+                                onclick="setBamMode('direct')"
+                            >
+                                Navegar
+                            </button>
+
+                            <button
+                                id="bamSearchTab"
+                                class="bam-tab"
+                                onclick="setBamMode('search')"
+                            >
+                                Buscar
+                            </button>
+
+                            <button
+                                class="bam-tab"
+                                onclick="openExternalBam()"
+                            >
+                                Abrir externamente
+                            </button>
+
+                        </div>
+
+
+                        <div class="bam-frame-wrap">
+
+                            <div
+                                id="bamEmpty"
+                                class="bam-empty"
+                            >
+
+                                <div class="bam-empty-box">
+
+                                    <h2>
+                                        BAM
+                                    </h2>
+
+                                    <p>
+                                        Escribe una dirección web para
+                                        intentar abrirla dentro de BAM.
+                                        Algunas páginas bloquean la
+                                        incrustación dentro de otras páginas.
+                                    </p>
+
+                                    <div class="bam-warning">
+                                        Si una página no permite iframe,
+                                        usa "Abrir externamente".
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <iframe
+                                id="bamFrame"
+                                title="BAM navegador"
+                                referrerpolicy="no-referrer"
+                            ></iframe>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     CHATS
+                ================================================== -->
+
+                <section
+                    id="page-chats"
+                    class="page content hidden"
+                >
+
+                    <div class="hero">
+
+                        <div>
+
+                            <h1>
+                                Chats
+                            </h1>
+
+                            <p>
+                                Selecciona un espacio de conversación.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="chatSelector"
+                        class="chat-list"
+                    ></div>
+
+
+                    <div
+                        id="chatWindowContainer"
+                        class="hidden"
+                        style="margin-top: 20px;"
+                    >
+
+                        <div class="chat-window">
+
+                            <header class="chat-header">
+
+                                <div class="chat-header-left">
+
+                                    <button
+                                        class="small-button"
+                                        onclick="closeChat()"
+                                    >
+                                        Volver
+                                    </button>
+
+                                    <div>
+
+                                        <div
+                                            id="activeChatTitle"
+                                            class="chat-title"
+                                        >
+                                            Chat
+                                        </div>
+
+                                        <div class="chat-status">
+                                            Firebase
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="chat-tools">
+
+                                    <button
+                                        class="small-button"
+                                        onclick="deleteAllMessages()"
+                                    >
+                                        Borrar todo
+                                    </button>
+
+                                </div>
+
+                            </header>
+
+
+                            <div
+                                id="messages"
+                                class="messages"
+                            ></div>
+
+
+                            <div class="chat-composer">
+
+                                <div
+                                    id="attachmentPreview"
+                                    class="attachment-preview"
+                                >
+
+                                    <span id="attachmentName">
+                                        Imagen seleccionada
+                                    </span>
+
+                                    <button
+                                        class="icon-button danger"
+                                        onclick="cancelAttachment()"
+                                    >
+                                        X
+                                    </button>
+
+                                </div>
+
+
+                                <div class="composer-row">
+
+                                    <textarea
+                                        id="messageInput"
+                                        class="composer-input"
+                                        placeholder="Escribe un mensaje..."
+                                    ></textarea>
+
+
+                                    <input
+                                        id="imageInput"
+                                        type="file"
+                                        accept="image/png,image/jpeg,image/webp,image/gif"
+                                        onchange="handleImageSelect(event)"
+                                    >
+
+
+                                    <button
+                                        class="composer-button"
+                                        onclick="document.getElementById('imageInput').click()"
+                                    >
+                                        Img
+                                    </button>
+
+
+                                    <button
+                                        class="composer-button composer-send"
+                                        onclick="sendMessage()"
+                                    >
+                                        Enviar
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     FOLDERS
+                ================================================== -->
+
+                <section
+                    id="page-folders"
+                    class="page content hidden"
+                >
+
+                    <div class="hero">
+
+                        <div>
+
+                            <h1>
+                                Carpetas
+                            </h1>
+
+                            <p>
+                                Diez espacios modificables.
+                                Cinco están protegidos.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="folderGrid"
+                        class="folder-grid"
+                    ></div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         LOGIN / CHAT / FOLDER / SHORTCUT MODALS
+    ========================================================== -->
+
+    <div
+        id="passwordModal"
+        class="modal-backdrop"
+    >
+
+        <div class="modal">
+
+            <h2 id="passwordModalTitle">
+                Contraseña
+            </h2>
+
+            <p id="passwordModalText">
+                Introduce la contraseña.
+            </p>
+
+            <input
+                id="protectedPassword"
+                class="text-input"
+                type="password"
+                autocomplete="new-password"
+            >
+
+            <div
+                id="secondPasswordField"
+                class="hidden"
+                style="margin-top: 12px;"
+            >
+
+                <input
+                    id="protectedPassword2"
+                    class="text-input"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="Segunda contraseña"
+                >
+
+            </div>
+
+
+            <div
+                id="passwordModalError"
+                class="login-message"
+            ></div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    class="secondary-button"
+                    onclick="closePasswordModal()"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    class="primary-button"
+                    style="width: auto;"
+                    onclick="confirmPasswordModal()"
+                >
+                    Entrar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="shortcutModal"
+        class="modal-backdrop"
+    >
+
+        <div class="modal">
+
+            <h2>
+                Nuevo acceso directo
+            </h2>
+
+            <p>
+                Añade una página al inicio.
+            </p>
+
+
+            <div class="field">
+
+                <label for="shortcutName">
+                    Nombre
+                </label>
+
+                <input
+                    id="shortcutName"
+                    class="text-input"
+                    type="text"
+                    maxlength="80"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="shortcutUrl">
+                    Dirección
+                </label>
+
+                <input
+                    id="shortcutUrl"
+                    class="text-input"
+                    type="text"
+                    placeholder="https://..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    class="secondary-button"
+                    onclick="closeShortcutModal()"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    class="primary-button"
+                    style="width: auto;"
+                    onclick="saveShortcut()"
+                >
+                    Guardar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="renameFolderModal"
+        class="modal-backdrop"
+    >
+
+        <div class="modal">
+
+            <h2>
+                Renombrar carpeta
+            </h2>
+
+            <p>
+                Cambia el nombre de esta carpeta.
+            </p>
+
+            <input
+                id="renameFolderInput"
+                class="text-input"
+                type="text"
+                maxlength="50"
+            >
+
+            <div class="modal-actions">
+
+                <button
+                    class="secondary-button"
+                    onclick="closeRenameFolderModal()"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    class="primary-button"
+                    style="width: auto;"
+                    onclick="saveFolderName()"
+                >
+                    Guardar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="toastContainer"></div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script type="module">
+
+        import {
+            auth,
+            db
+        } from "./firebase.js";
+
+
+        import {
+            onAuthStateChanged,
+            signInWithEmailAndPassword,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+        import {
+            collection,
+            addDoc,
+            setDoc,
+            getDoc,
+            getDocs,
+            deleteDoc,
+            doc,
+            query,
+            orderBy,
+            onSnapshot,
+            serverTimestamp,
+            writeBatch
+        } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+        /* =========================================================
+           ESTADO
+        ========================================================== */
+
+        let currentUser = null;
+
+        let activePage = "home";
+
+        let activeChat = null;
+
+        let chatListener = null;
+
+        let selectedChatToOpen = null;
+
+        let selectedFolderToOpen = null;
+
+        let selectedFolderToRename = null;
+
+        let selectedImageData = null;
+
+        let bamMode = "direct";
+
+
+        /*
+         * Los nombres visibles pueden cambiar.
+         *
+         * NO guardamos contraseñas de chats aquí.
+         *
+         * Los valores siguientes solamente indican
+         * qué chats requieren contraseña en la interfaz.
+         */
+
+        const CHAT_CONFIG = {
+
+            chat1: {
+                name: "Chat 1",
+                protection: 1
+            },
+
+            chat2: {
+                name: "Chat 2",
+                protection: 1
+            },
+
+            chat3: {
+                name: "Chat 3",
+                protection: 1
+            },
+
+            chat4: {
+                name: "Chat 4",
+                protection: 2
+            },
+
+            chatP: {
+                name: "Chat P",
+                protection: 0
+            }
+
+        };
+
+
+        let shortcuts = [
+
+            {
+                id: "default-4chan",
+                name: "4chan",
+                url: "https://www.4chan.org",
+                locked: false
+            }
+
+        ];
+
+
+        let folders = Array.from(
+            { length: 10 },
+            (_, index) => ({
+
+                id: index + 1,
+
+                name: `Carpeta ${index + 1}`,
+
+                protected: index < 5
+
+            })
+        );
+
+
+        /* =========================================================
+           ELEMENTOS
+        ========================================================== */
+
+        const loginScreen =
+            document.getElementById("loginScreen");
+
+        const app =
+            document.getElementById("app");
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const loginEmail =
+            document.getElementById("loginEmail");
+
+        const loginPassword =
+            document.getElementById("loginPassword");
+
+        const loginMessage =
+            document.getElementById("loginMessage");
+
+
+        /* =========================================================
+           TOAST
+        ========================================================== */
+
+        function toast(message) {
+
+            const container =
+                document.getElementById("toastContainer");
+
+            const element =
+                document.createElement("div");
+
+            element.className = "toast";
+
+            element.textContent = message;
+
+            container.appendChild(element);
+
+            setTimeout(() => {
+
+                element.remove();
+
+            }, 3200);
+        }
+
+
+        /* =========================================================
+           LOGIN
+        ========================================================== */
+
+        loginForm.addEventListener(
+            "submit",
+            async (event) => {
+
+                event.preventDefault();
+
+                loginMessage.textContent = "";
+
+                const email =
+                    loginEmail.value.trim();
+
+                const password =
+                    loginPassword.value;
+
+
+                try {
+
+                    await signInWithEmailAndPassword(
+                        auth,
+                        email,
+                        password
+                    );
+
+                    loginEmail.value = "";
+                    loginPassword.value = "";
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    loginMessage.textContent =
+                        "No se pudo iniciar sesión.";
+
+                }
+
+            }
+        );
+
+
+        onAuthStateChanged(
+            auth,
+            async (user) => {
+
+                if (user) {
+
+                    currentUser = user;
+
+                    loginScreen.style.display = "none";
+
+                    app.style.display = "block";
+
+                    document
+                        .getElementById("accountEmail")
+                        .textContent =
+                            "Cuenta activa";
+
+                    await loadUserData();
+
+                    showPage("home");
+
+                } else {
+
+                    currentUser = null;
+
+                    app.style.display = "none";
+
+                    loginScreen.style.display = "flex";
+
+                    closeChat();
+
+                }
+
+            }
+        );
+
+
+        window.logoutUser = async function () {
+
+            try {
+
+                await signOut(auth);
+
+            } catch (error) {
+
+                console.error(error);
+
+            }
+
+        };
+
+
+        /* =========================================================
+           USER DATA
+        ========================================================== */
+
+        async function loadUserData() {
+
+            if (!currentUser) {
+                return;
+            }
+
+
+            try {
+
+                const shortcutsRef =
+                    doc(
+                        db,
+                        "users",
+                        currentUser.uid,
+                        "settings",
+                        "shortcuts"
+                    );
+
+
+                const shortcutsSnap =
+                    await getDoc(shortcutsRef);
+
+
+                if (shortcutsSnap.exists()) {
+
+                    const data =
+                        shortcutsSnap.data();
+
+                    if (Array.isArray(data.items)) {
+
+                        shortcuts = data.items;
+
+                    }
+
+                }
+
+
+                const foldersRef =
+                    doc(
+                        db,
+                        "users",
+                        currentUser.uid,
+                        "settings",
+                        "folders"
+                    );
+
+
+                const foldersSnap =
+                    await getDoc(foldersRef);
+
+
+                if (foldersSnap.exists()) {
+
+                    const data =
+                        foldersSnap.data();
+
+                    if (Array.isArray(data.items)) {
+
+                        folders = data.items;
+
+                    }
+
+                }
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                toast(
+                    "No se pudieron cargar algunas configuraciones."
+                );
+
+            }
+
+
+            renderShortcuts();
+
+            renderFolders();
+
+            renderChats();
+
+        }
+
+
+        async function saveUserSettings() {
+
+            if (!currentUser) {
+                return;
+            }
+
+
+            await setDoc(
+
+                doc(
+                    db,
+                    "users",
+                    currentUser.uid,
+                    "settings",
+                    "shortcuts"
+                ),
+
+                {
+                    items: shortcuts
+                },
+
+                {
+                    merge: true
+                }
+
+            );
+
+
+            await setDoc(
+
+                doc(
+                    db,
+                    "users",
+                    currentUser.uid,
+                    "settings",
+                    "folders"
+                ),
+
+                {
+                    items: folders
+                },
+
+                {
+                    merge: true
+                }
+
+            );
+
+        }
+
+
+        /* =========================================================
+           PAGE NAVIGATION
+        ========================================================== */
+
+        const pageNames = {
+
+            home: "Inicio",
+
+            bam: "BAM",
+
+            chats: "Chats",
+
+            folders: "Carpetas"
+
+        };
+
+
+        window.showPage = function (page) {
+
+            activePage = page;
+
+            closeChat();
+
+            const pages =
+                document.querySelectorAll(".page");
+
+            pages.forEach(
+                (element) => {
+
+                    element.classList.add("hidden");
+
+                }
+            );
+
+
+            const pageElement =
+                document.getElementById(
+                    `page-${page}`
+                );
+
+
+            if (pageElement) {
+
+                pageElement.classList.remove("hidden");
+
+            }
+
+
+            const navItems =
+                document.querySelectorAll(".nav-item");
+
+            navItems.forEach(
+                (item) => {
+
+                    item.classList.toggle(
+                        "active",
+                        item.dataset.page === page
+                    );
+
+                }
+            );
+
+
+            document
+                .getElementById("pageTitle")
+                .textContent =
+                    pageNames[page] || "Inicio";
+
+        };
+
+
+        /* =========================================================
+           SHORTCUTS
+        ========================================================== */
+
+        function renderShortcuts() {
+
+            const grid =
+                document.getElementById("shortcutGrid");
+
+            grid.innerHTML = "";
+
+
+            if (!shortcuts.length) {
+
+                const empty =
+                    document.createElement("div");
+
+                empty.className = "feature-card";
+
+                empty.innerHTML = `
+                    <h3>No hay accesos</h3>
+                    <p>
+                        Crea un acceso directo para que aparezca aquí.
+                    </p>
+                `;
+
+                grid.appendChild(empty);
+
+                return;
+            }
+
+
+            shortcuts.forEach(
+                (shortcut) => {
+```
