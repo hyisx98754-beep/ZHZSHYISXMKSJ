@@ -5,46 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ZHZSHYISXMKSJ</title>
+    <title>HYISX</title>
 
     <style>
-        /* =========================================================
-           VARIABLES
-        ========================================================= */
-
         :root {
-            --bg: #080a0d;
-            --bg-secondary: #0d1014;
+            --bg: #07090c;
+            --bg2: #0c0f13;
             --panel: #11151a;
-            --panel-2: #151a20;
-            --panel-hover: #1a2028;
-            --border: #252c35;
-            --border-light: #313a45;
+            --panel2: #151a20;
+            --panel-hover: #1b2129;
 
-            --text: #f3f5f7;
-            --text-secondary: #9ba3ad;
-            --text-muted: #68717c;
+            --border: #252c34;
+            --border-light: #37404b;
+
+            --text: #f1f3f5;
+            --text2: #a0a8b1;
+            --muted: #68717b;
 
             --white: #ffffff;
             --black: #000000;
 
-            --danger: #e35d6a;
-            --danger-dark: #a63844;
+            --danger: #dc606c;
+            --danger-dark: #35151a;
 
-            --success: #55c58a;
-            --warning: #d8aa55;
+            --success: #58c993;
 
-            --radius-small: 9px;
+            --sidebar: 250px;
+            --topbar: 70px;
+
             --radius: 13px;
-            --radius-large: 18px;
-
-            --sidebar-width: 250px;
-            --topbar-height: 70px;
+            --radius-big: 18px;
         }
-
-        /* =========================================================
-           RESET
-        ========================================================= */
 
         * {
             box-sizing: border-box;
@@ -54,14 +45,13 @@
 
         html,
         body {
-            width: 100%;
             min-height: 100%;
+            width: 100%;
         }
 
         body {
             font-family:
                 Inter,
-                ui-sans-serif,
                 system-ui,
                 -apple-system,
                 BlinkMacSystemFont,
@@ -84,129 +74,92 @@
             cursor: pointer;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
-        ::selection {
-            background: #ffffff;
-            color: #000000;
-        }
-
-        /* =========================================================
-           GLOBAL UTILITIES
-        ========================================================= */
-
         .hidden {
             display: none !important;
         }
 
-        .screen {
-            min-height: 100vh;
-        }
-
-        .muted {
-            color: var(--text-muted);
-        }
-
-        .secondary {
-            color: var(--text-secondary);
-        }
-
-        .danger-text {
-            color: var(--danger);
-        }
-
-        .success-text {
-            color: var(--success);
-        }
-
-        /* =========================================================
+        /* =====================================================
            LOGIN
-        ========================================================= */
+        ===================================================== */
 
         #loginScreen {
             min-height: 100vh;
 
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
 
             padding: 25px;
 
             background:
                 radial-gradient(
-                    circle at top,
-                    #151a21 0%,
-                    #080a0d 48%,
-                    #050608 100%
+                    circle at 50% -10%,
+                    #1a2028 0,
+                    #0c0f13 35%,
+                    #07090c 70%
                 );
         }
 
-        .login-shell {
+        .login-container {
             width: 100%;
-            max-width: 450px;
+            max-width: 460px;
         }
 
-        .login-box {
-            width: 100%;
-
-            background: rgba(17, 21, 26, 0.94);
+        .login-card {
+            background: rgba(15, 19, 24, 0.96);
 
             border: 1px solid var(--border);
 
             border-radius: 22px;
 
-            padding: 38px;
+            padding: 40px;
 
             box-shadow:
-                0 35px 90px rgba(0, 0, 0, 0.55),
-                inset 0 1px 0 rgba(255, 255, 255, 0.025);
-
-            backdrop-filter: blur(15px);
+                0 35px 100px rgba(0, 0, 0, .55),
+                inset 0 1px rgba(255,255,255,.025);
         }
 
-        .login-brand {
+        .brand {
             text-align: center;
-            margin-bottom: 34px;
+            margin-bottom: 35px;
         }
 
-        .login-brand h1 {
-            font-size: 43px;
+        .brand h1 {
+            font-size: 46px;
+            font-weight: 900;
             letter-spacing: 8px;
-            font-weight: 850;
         }
 
-        .login-brand p {
-            color: var(--text-secondary);
-            margin-top: 10px;
+        .brand p {
+            margin-top: 9px;
+            color: var(--text2);
             font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .field {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .field label {
             display: block;
+
+            color: var(--text2);
+
             font-size: 13px;
-            color: var(--text-secondary);
+
             margin-bottom: 8px;
         }
 
-        .text-input {
+        .input {
             width: 100%;
 
-            border: 1px solid var(--border);
-
-            background: #0a0d10;
+            background: #090c10;
 
             color: var(--text);
+
+            border: 1px solid var(--border);
 
             border-radius: var(--radius);
 
@@ -214,18 +167,18 @@
 
             outline: none;
 
-            transition:
-                border-color 0.2s,
-                background 0.2s;
+            transition: .2s;
         }
 
-        .text-input:focus {
+        .input:focus {
             border-color: var(--border-light);
-            background: #0d1115;
+            background: #0c1014;
         }
 
-        .primary-button {
+        .primary {
             width: 100%;
+
+            padding: 14px;
 
             border: none;
 
@@ -234,79 +187,69 @@
             background: var(--white);
             color: var(--black);
 
-            padding: 14px 18px;
+            font-weight: 800;
 
-            font-weight: 750;
-
-            transition:
-                transform 0.15s,
-                opacity 0.15s;
+            transition: .18s;
         }
 
-        .primary-button:hover {
+        .primary:hover {
+            opacity: .9;
             transform: translateY(-1px);
-            opacity: 0.92;
         }
 
-        .primary-button:active {
-            transform: translateY(0);
-        }
+        .login-status {
+            min-height: 22px;
 
-        .login-message {
-            min-height: 21px;
-
-            margin-top: 15px;
+            margin-top: 14px;
 
             text-align: center;
 
+            color: var(--danger);
+
             font-size: 13px;
 
-            color: var(--danger);
+            line-height: 1.45;
         }
 
-        /* =========================================================
-           APP LAYOUT
-        ========================================================= */
+        /* =====================================================
+           APP
+        ===================================================== */
 
         #app {
             display: none;
-
             min-height: 100vh;
-
-            background: var(--bg);
         }
 
         .app-layout {
             min-height: 100vh;
-
             display: flex;
         }
 
-        /* =========================================================
+        /* =====================================================
            SIDEBAR
-        ========================================================= */
+        ===================================================== */
 
         .sidebar {
             position: fixed;
 
-            left: 0;
             top: 0;
             bottom: 0;
+            left: 0;
 
-            width: var(--sidebar-width);
+            width: var(--sidebar);
+
+            background: #0a0d11;
+
+            border-right: 1px solid var(--border);
 
             display: flex;
             flex-direction: column;
 
-            background: #0b0e12;
-
-            border-right: 1px solid var(--border);
-
-            z-index: 50;
+            z-index: 100;
         }
 
-        .sidebar-brand {
-            height: var(--topbar-height);
+        .sidebar-logo {
+            height: var(--topbar);
 
             display: flex;
             align-items: center;
@@ -315,16 +258,27 @@
 
             border-bottom: 1px solid var(--border);
 
-            font-size: 22px;
-            font-weight: 850;
+            font-size: 23px;
+            font-weight: 900;
             letter-spacing: 4px;
         }
 
-        .sidebar-nav {
-            padding: 18px 12px;
+        .sidebar-subtitle {
+            padding: 0 24px;
+            margin-top: -17px;
+
+            color: var(--muted);
+
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
-        .nav-item {
+        .nav {
+            padding: 24px 12px;
+        }
+
+        .nav-button {
             width: 100%;
 
             display: flex;
@@ -336,7 +290,7 @@
 
             background: transparent;
 
-            color: var(--text-secondary);
+            color: var(--text2);
 
             padding: 12px 13px;
 
@@ -346,38 +300,33 @@
 
             text-align: left;
 
-            transition:
-                background 0.18s,
-                color 0.18s,
-                border-color 0.18s;
+            transition: .18s;
         }
 
-        .nav-item:hover {
+        .nav-button:hover {
             background: var(--panel);
             color: var(--text);
         }
 
-        .nav-item.active {
-            background: var(--panel-2);
+        .nav-button.active {
+            background: var(--panel2);
             border-color: var(--border);
             color: var(--text);
         }
 
-        .nav-icon {
-            width: 28px;
-            height: 28px;
-
-            border-radius: 8px;
+        .nav-mark {
+            width: 29px;
+            height: 29px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
+            border-radius: 8px;
+
             background: #181e25;
 
-            color: var(--text-secondary);
-
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 800;
         }
 
@@ -389,7 +338,7 @@
             border-top: 1px solid var(--border);
         }
 
-        .user-box {
+        .account-box {
             display: flex;
             align-items: center;
 
@@ -397,82 +346,78 @@
 
             padding: 10px;
 
-            border-radius: 11px;
-
             background: #101419;
 
             border: 1px solid var(--border);
 
-            margin-bottom: 10px;
+            border-radius: 11px;
+
+            margin-bottom: 9px;
         }
 
-        .user-avatar {
-            width: 33px;
-            height: 33px;
+        .account-avatar {
+            width: 34px;
+            height: 34px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            background: #ffffff;
-            color: #000000;
-
             border-radius: 9px;
 
+            background: white;
+            color: black;
+
             font-size: 12px;
-            font-weight: 800;
+            font-weight: 900;
         }
 
-        .user-info {
-            overflow: hidden;
+        .account-text {
+            min-width: 0;
         }
 
-        .user-info strong {
+        .account-text strong {
             display: block;
 
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-
             font-size: 13px;
+
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 
-        .user-info span {
-            color: var(--text-muted);
-            font-size: 11px;
+        .account-text span {
+            color: var(--muted);
+            font-size: 10px;
         }
 
-        .logout-button {
+        .logout {
             width: 100%;
+
+            padding: 10px;
 
             border: 1px solid var(--border);
 
             background: transparent;
 
-            color: var(--text-secondary);
+            color: var(--text2);
 
             border-radius: 10px;
-
-            padding: 10px;
-
-            transition:
-                background 0.18s,
-                color 0.18s;
         }
 
-        .logout-button:hover {
+        .logout:hover {
             background: var(--panel);
             color: var(--text);
         }
 
-        /* =========================================================
-           MAIN AREA
-        ========================================================= */
+        /* =====================================================
+           MAIN
+        ===================================================== */
 
-        .main-area {
-            width: calc(100% - var(--sidebar-width));
+        .main {
+            width: calc(100% - var(--sidebar));
 
-            margin-left: var(--sidebar-width);
+            margin-left: var(--sidebar);
 
             min-height: 100vh;
         }
@@ -482,7 +427,7 @@
 
             top: 0;
 
-            height: var(--topbar-height);
+            height: var(--topbar);
 
             display: flex;
             align-items: center;
@@ -490,24 +435,23 @@
 
             padding: 0 28px;
 
-            background: rgba(8, 10, 13, 0.92);
+            background: rgba(7,9,12,.94);
 
             border-bottom: 1px solid var(--border);
 
             backdrop-filter: blur(15px);
 
-            z-index: 40;
+            z-index: 50;
         }
 
         .page-title {
             font-size: 18px;
-            font-weight: 750;
+            font-weight: 800;
         }
 
-        .topbar-actions {
+        .top-actions {
             display: flex;
-            align-items: center;
-            gap: 9px;
+            gap: 8px;
         }
 
         .small-button {
@@ -515,15 +459,11 @@
 
             background: var(--panel);
 
-            color: var(--text-secondary);
-
-            border-radius: 9px;
+            color: var(--text2);
 
             padding: 9px 13px;
 
-            transition:
-                background 0.18s,
-                color 0.18s;
+            border-radius: 9px;
         }
 
         .small-button:hover {
@@ -532,18 +472,18 @@
         }
 
         .content {
-            padding: 32px;
-
             max-width: 1500px;
 
             margin: 0 auto;
+
+            padding: 32px;
         }
 
-        /* =========================================================
+        /* =====================================================
            HOME
-        ========================================================= */
+        ===================================================== */
 
-        .hero {
+        .home-heading {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -553,59 +493,23 @@
             margin-bottom: 30px;
         }
 
-        .hero h1 {
-            font-size: clamp(30px, 4vw, 44px);
-            line-height: 1.05;
-            margin-bottom: 10px;
+        .home-heading h1 {
+            font-size: clamp(31px, 4vw, 46px);
+
+            margin-bottom: 9px;
         }
 
-        .hero p {
-            color: var(--text-secondary);
+        .home-heading p {
+            color: var(--text2);
         }
 
-        .quick-actions {
+        .action-row {
             display: flex;
-            gap: 9px;
             flex-wrap: wrap;
-            justify-content: flex-end;
+            gap: 8px;
         }
 
-        .feature-card {
-            border: 1px solid var(--border);
-
-            background: linear-gradient(
-                145deg,
-                #12161b,
-                #0d1014
-            );
-
-            border-radius: var(--radius-large);
-
-            padding: 24px;
-
-            transition:
-                border-color 0.18s,
-                transform 0.18s,
-                background 0.18s;
-
-            cursor: pointer;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--border-light);
-            background: linear-gradient(
-                145deg,
-                #171c22,
-                #101419
-            );
-        }
-
-        .feature-card.large {
-            min-height: 185px;
-        }
-
-        .feature-grid {
+        .dashboard {
             display: grid;
 
             grid-template-columns:
@@ -613,21 +517,55 @@
 
             gap: 15px;
 
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
 
-        .feature-card h3 {
-            font-size: 18px;
+        .dashboard-card {
+            min-height: 180px;
+
+            padding: 24px;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius-big);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #13181e,
+                    #0e1216
+                );
+
+            cursor: pointer;
+
+            transition: .18s;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-2px);
+
+            border-color: var(--border-light);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #181e25,
+                    #11161b
+                );
+        }
+
+        .dashboard-card h2 {
             margin-bottom: 10px;
+            font-size: 19px;
         }
 
-        .feature-card p {
-            color: var(--text-secondary);
-            font-size: 14px;
-            line-height: 1.55;
+        .dashboard-card p {
+            color: var(--text2);
+            font-size: 13px;
+            line-height: 1.6;
         }
 
-        .section-heading {
+        .section-head {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -635,7 +573,7 @@
             margin-bottom: 13px;
         }
 
-        .section-heading h2 {
+        .section-head h2 {
             font-size: 18px;
         }
 
@@ -643,60 +581,63 @@
             display: grid;
 
             grid-template-columns:
-                repeat(auto-fill, minmax(180px, 1fr));
+                repeat(auto-fill, minmax(190px, 1fr));
 
             gap: 12px;
         }
 
-        .shortcut-card {
+        .shortcut {
             position: relative;
 
-            border: 1px solid var(--border);
+            min-height: 120px;
+
+            padding: 18px;
 
             background: var(--panel);
 
+            border: 1px solid var(--border);
+
             border-radius: 14px;
-
-            padding: 17px;
-
-            min-height: 115px;
 
             cursor: pointer;
 
-            transition: 0.18s;
+            transition: .18s;
         }
 
-        .shortcut-card:hover {
+        .shortcut:hover {
             background: var(--panel-hover);
             border-color: var(--border-light);
         }
 
         .shortcut-name {
-            font-weight: 750;
+            font-weight: 800;
+
             margin-bottom: 8px;
         }
 
         .shortcut-url {
-            color: var(--text-muted);
-            font-size: 12px;
+            color: var(--muted);
+
+            font-size: 11px;
 
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        .shortcut-options {
+        .shortcut-actions {
             position: absolute;
-            top: 9px;
-            right: 9px;
+
+            top: 8px;
+            right: 8px;
 
             display: flex;
             gap: 4px;
         }
 
         .icon-button {
-            width: 30px;
-            height: 30px;
+            width: 29px;
+            height: 29px;
 
             display: inline-flex;
             align-items: center;
@@ -704,29 +645,33 @@
 
             border: 1px solid var(--border);
 
+            border-radius: 8px;
+
             background: #101419;
 
-            color: var(--text-secondary);
+            color: var(--text2);
 
-            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 800;
         }
 
         .icon-button:hover {
-            background: var(--panel-hover);
             color: var(--text);
+            background: var(--panel-hover);
         }
 
         .icon-button.danger:hover {
-            color: #ffffff;
             background: var(--danger-dark);
+            border-color: var(--danger-dark);
+            color: white;
         }
 
-        /* =========================================================
+        /* =====================================================
            BAM
-        ========================================================= */
+        ===================================================== */
 
-        .bam-shell {
-            min-height: calc(100vh - var(--topbar-height));
+        .bam-page {
+            min-height: calc(100vh - var(--topbar));
 
             display: flex;
             flex-direction: column;
@@ -734,74 +679,73 @@
 
         .bam-toolbar {
             display: flex;
+            gap: 8px;
 
-            gap: 9px;
+            padding: 18px 24px;
 
-            padding: 20px 24px;
+            background: #0b0e12;
 
             border-bottom: 1px solid var(--border);
-
-            background: #0c0f13;
         }
 
-        .bam-input {
+        .bam-address {
             flex: 1;
 
             min-width: 0;
 
             border: 1px solid var(--border);
 
-            background: #090c0f;
+            background: #080b0f;
 
             color: var(--text);
 
-            padding: 13px 15px;
+            padding: 13px 14px;
 
-            border-radius: 11px;
+            border-radius: 10px;
 
             outline: none;
         }
 
-        .bam-input:focus {
+        .bam-address:focus {
             border-color: var(--border-light);
         }
 
-        .bam-go {
+        .bam-button {
             border: none;
 
-            background: var(--white);
+            background: white;
 
-            color: var(--black);
+            color: black;
 
-            border-radius: 11px;
+            padding: 0 22px;
 
-            padding: 0 23px;
+            border-radius: 10px;
 
             font-weight: 800;
         }
 
-        .bam-tabs {
+        .bam-subbar {
             display: flex;
-
             gap: 6px;
 
-            padding: 12px 24px;
+            padding: 11px 24px;
 
             border-bottom: 1px solid var(--border);
         }
 
         .bam-tab {
+            padding: 8px 11px;
+
             border: 1px solid transparent;
+
+            border-radius: 8px;
 
             background: transparent;
 
-            color: var(--text-secondary);
-
-            padding: 8px 11px;
-
-            border-radius: 8px;
+            color: var(--text2);
         }
 
+        .bam-tab:hover,
         .bam-tab.active {
             background: var(--panel);
 
@@ -810,7 +754,7 @@
             color: var(--text);
         }
 
-        .bam-frame-wrap {
+        .bam-area {
             position: relative;
 
             flex: 1;
@@ -820,146 +764,166 @@
             background: #050608;
         }
 
-        #bamFrame {
-            width: 100%;
-            height: 100%;
-            min-height: 650px;
-
-            display: none;
-
-            border: 0;
-
-            background: #ffffff;
-        }
-
         .bam-empty {
             min-height: 650px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
+
+            text-align: center;
 
             padding: 30px;
         }
 
-        .bam-empty-box {
-            max-width: 560px;
-
-            text-align: center;
+        .bam-empty-content {
+            max-width: 620px;
         }
 
-        .bam-empty-box h2 {
-            font-size: 31px;
+        .bam-empty-content h1 {
+            font-size: 42px;
+
+            letter-spacing: 4px;
+
             margin-bottom: 12px;
         }
 
-        .bam-empty-box p {
-            color: var(--text-secondary);
-            line-height: 1.6;
+        .bam-empty-content p {
+            color: var(--text2);
+
+            line-height: 1.7;
         }
 
-        .bam-warning {
-            margin-top: 22px;
-
+        .bam-note {
             display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 10px 13px;
 
             border: 1px solid var(--border);
 
             background: var(--panel);
 
-            padding: 11px 14px;
+            border-radius: 9px;
 
-            border-radius: 10px;
+            color: var(--muted);
 
-            font-size: 13px;
-
-            color: var(--text-secondary);
+            font-size: 12px;
         }
 
-        /* =========================================================
-           CHAT
-        ========================================================= */
+        #bamFrame {
+            display: none;
 
-        .chat-list {
+            width: 100%;
+            height: 100%;
+
+            min-height: 650px;
+
+            border: none;
+
+            background: white;
+        }
+
+        /* =====================================================
+           CHAT LIST
+        ===================================================== */
+
+        .chat-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(auto-fill, minmax(210px, 1fr));
+                repeat(auto-fill, minmax(220px, 1fr));
 
             gap: 14px;
         }
 
-        .chat-selector {
+        .chat-card {
+            min-height: 160px;
+
+            padding: 22px;
+
             border: 1px solid var(--border);
 
             background: var(--panel);
 
             border-radius: 15px;
 
-            padding: 21px;
-
             text-align: left;
 
             color: var(--text);
 
-            transition: 0.18s;
+            transition: .18s;
         }
 
-        .chat-selector:hover {
-            background: var(--panel-hover);
-            border-color: var(--border-light);
+        .chat-card:hover {
             transform: translateY(-2px);
+
+            background: var(--panel-hover);
+
+            border-color: var(--border-light);
         }
 
-        .chat-selector h3 {
-            margin-bottom: 8px;
+        .chat-card h3 {
+            margin-bottom: 9px;
         }
 
-        .chat-selector p {
-            color: var(--text-secondary);
+        .chat-card p {
+            color: var(--text2);
+
             font-size: 13px;
+
             line-height: 1.5;
         }
 
         .chat-protection {
             display: inline-block;
 
-            margin-top: 14px;
+            margin-top: 15px;
 
-            color: var(--text-muted);
-
-            font-size: 11px;
+            padding: 5px 8px;
 
             border: 1px solid var(--border);
 
             border-radius: 7px;
 
-            padding: 5px 7px;
+            color: var(--muted);
+
+            font-size: 10px;
         }
 
+        /* =====================================================
+           CHAT WINDOW
+        ===================================================== */
+
         .chat-window {
-            height: calc(100vh - 134px);
+            height: calc(100vh - 135px);
+
+            min-height: 550px;
 
             display: flex;
             flex-direction: column;
 
             border: 1px solid var(--border);
 
-            background: #0a0d10;
-
             border-radius: 15px;
 
             overflow: hidden;
+
+            background: #090c0f;
         }
 
         .chat-header {
-            min-height: 64px;
+            min-height: 65px;
+
+            padding: 0 15px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 16px;
+            gap: 10px;
 
             border-bottom: 1px solid var(--border);
 
@@ -973,15 +937,15 @@
         }
 
         .chat-title {
-            font-weight: 800;
+            font-weight: 850;
         }
 
-        .chat-status {
-            color: var(--text-muted);
-            font-size: 11px;
+        .chat-state {
+            font-size: 10px;
+            color: var(--muted);
         }
 
-        .chat-tools {
+        .chat-header-actions {
             display: flex;
             gap: 7px;
         }
@@ -997,7 +961,7 @@
         .message-row {
             display: flex;
 
-            margin-bottom: 13px;
+            margin-bottom: 12px;
         }
 
         .message-row.mine {
@@ -1005,17 +969,17 @@
         }
 
         .message {
-            max-width: min(720px, 85%);
+            position: relative;
 
-            border: 1px solid var(--border);
-
-            background: var(--panel);
-
-            border-radius: 14px;
+            max-width: min(730px, 85%);
 
             padding: 11px 13px;
 
-            position: relative;
+            background: var(--panel);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
         }
 
         .message.mine {
@@ -1023,43 +987,44 @@
         }
 
         .message-author {
-            font-size: 11px;
+            font-size: 10px;
 
-            color: var(--text-muted);
+            color: var(--muted);
 
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .message-text {
             white-space: pre-wrap;
 
-            line-height: 1.5;
-
             font-size: 14px;
-        }
 
-        .message-time {
-            font-size: 10px;
+            line-height: 1.55;
 
-            color: var(--text-muted);
-
-            margin-top: 7px;
-
-            text-align: right;
+            padding-right: 23px;
         }
 
         .message-image {
             display: block;
 
-            max-width: 360px;
+            max-width: 400px;
+            max-height: 400px;
 
-            max-height: 360px;
-
-            object-fit: contain;
+            margin-top: 8px;
 
             border-radius: 9px;
 
+            object-fit: contain;
+        }
+
+        .message-time {
             margin-top: 7px;
+
+            text-align: right;
+
+            color: var(--muted);
+
+            font-size: 9px;
         }
 
         .message-delete {
@@ -1068,45 +1033,51 @@
             top: 7px;
             right: 7px;
 
-            opacity: 0;
-
             width: 27px;
             height: 27px;
 
             border: 1px solid var(--border);
 
-            background: #0e1115;
-
-            color: var(--text-secondary);
-
             border-radius: 7px;
 
-            transition: opacity 0.15s;
+            background: #0c1014;
+
+            color: var(--text2);
+
+            opacity: 0;
+
+            transition: .15s;
         }
 
         .message:hover .message-delete {
             opacity: 1;
         }
 
-        .chat-composer {
-            border-top: 1px solid var(--border);
+        .message-delete:hover {
+            background: var(--danger-dark);
 
-            background: #0c0f13;
+            border-color: var(--danger-dark);
 
-            padding: 12px;
+            color: white;
         }
 
-        .attachment-preview {
+        .composer {
+            padding: 12px;
+
+            border-top: 1px solid var(--border);
+
+            background: #0d1014;
+        }
+
+        .selected-file {
             display: none;
 
             align-items: center;
             justify-content: space-between;
 
-            gap: 10px;
+            margin-bottom: 8px;
 
             padding: 8px 10px;
-
-            margin-bottom: 9px;
 
             border: 1px solid var(--border);
 
@@ -1114,39 +1085,40 @@
 
             border-radius: 9px;
 
-            font-size: 12px;
+            color: var(--text2);
+
+            font-size: 11px;
         }
 
         .composer-row {
             display: flex;
-
-            align-items: flex-end;
-
             gap: 8px;
+            align-items: flex-end;
         }
 
-        .composer-input {
+        .message-input {
             flex: 1;
 
             min-height: 45px;
-            max-height: 150px;
+
+            max-height: 160px;
 
             resize: vertical;
 
             border: 1px solid var(--border);
 
-            background: #090c0f;
+            background: #080b0f;
 
             color: var(--text);
 
-            border-radius: 11px;
+            border-radius: 10px;
 
-            padding: 12px 13px;
+            padding: 12px;
 
             outline: none;
         }
 
-        .composer-input:focus {
+        .message-input:focus {
             border-color: var(--border-light);
         }
 
@@ -1156,36 +1128,37 @@
 
             border: 1px solid var(--border);
 
+            border-radius: 10px;
+
             background: var(--panel);
 
-            color: var(--text);
-
-            border-radius: 11px;
+            color: var(--text2);
         }
 
         .composer-button:hover {
             background: var(--panel-hover);
+            color: var(--text);
         }
 
-        .composer-send {
+        .send-button {
+            padding: 0 17px;
+
+            background: white;
+
             border: none;
 
-            background: var(--white);
-
-            color: var(--black);
+            color: black;
 
             font-weight: 800;
-
-            padding: 0 17px;
         }
 
         #imageInput {
             display: none;
         }
 
-        /* =========================================================
+        /* =====================================================
            FOLDERS
-        ========================================================= */
+        ===================================================== */
 
         .folder-grid {
             display: grid;
@@ -1196,10 +1169,8 @@
             gap: 14px;
         }
 
-        .folder-card {
-            position: relative;
-
-            min-height: 155px;
+        .folder {
+            min-height: 160px;
 
             display: flex;
             flex-direction: column;
@@ -1213,57 +1184,63 @@
 
             border-radius: 15px;
 
-            transition: 0.18s;
+            transition: .18s;
         }
 
-        .folder-card:hover {
-            border-color: var(--border-light);
+        .folder:hover {
             background: var(--panel-hover);
+
+            border-color: var(--border-light);
+
             transform: translateY(-2px);
         }
 
         .folder-top {
             display: flex;
-
-            align-items: flex-start;
             justify-content: space-between;
 
             gap: 10px;
         }
 
         .folder-number {
-            color: var(--text-muted);
-            font-size: 11px;
+            color: var(--muted);
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
         }
 
         .folder-name {
+            margin-top: 7px;
+
             font-size: 17px;
-            font-weight: 800;
 
-            margin-top: 8px;
+            font-weight: 850;
         }
 
-        .folder-state {
-            color: var(--text-secondary);
-            font-size: 12px;
+        .folder-status {
+            margin-top: 5px;
+
+            color: var(--text2);
+
+            font-size: 11px;
         }
 
-        .folder-actions {
+        .folder-bottom {
             display: flex;
-
-            gap: 7px;
+            justify-content: flex-end;
         }
 
-        /* =========================================================
+        /* =====================================================
            MODALS
-        ========================================================= */
+        ===================================================== */
 
-        .modal-backdrop {
+        .modal-background {
             position: fixed;
 
             inset: 0;
 
-            z-index: 200;
+            z-index: 300;
 
             display: none;
 
@@ -1272,32 +1249,28 @@
 
             padding: 20px;
 
-            background: rgba(0, 0, 0, 0.72);
+            background: rgba(0,0,0,.74);
 
             backdrop-filter: blur(8px);
         }
 
-        .modal-backdrop.active {
+        .modal-background.active {
             display: flex;
         }
 
         .modal {
             width: 100%;
-            max-width: 490px;
+            max-width: 480px;
+
+            padding: 25px;
 
             border: 1px solid var(--border);
 
-            background: #11151a;
-
             border-radius: 18px;
 
-            padding: 24px;
+            background: #11151a;
 
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-        }
-
-        .modal.large {
-            max-width: 700px;
+            box-shadow: 0 35px 90px rgba(0,0,0,.6);
         }
 
         .modal h2 {
@@ -1305,52 +1278,60 @@
         }
 
         .modal p {
-            color: var(--text-secondary);
-
-            font-size: 13px;
+            color: var(--text2);
 
             line-height: 1.55;
 
-            margin-bottom: 20px;
+            font-size: 13px;
+
+            margin-bottom: 18px;
         }
 
         .modal-actions {
             display: flex;
-
             justify-content: flex-end;
-
             gap: 8px;
 
             margin-top: 20px;
         }
 
-        .secondary-button {
+        .secondary {
+            padding: 10px 14px;
+
             border: 1px solid var(--border);
 
             background: var(--panel);
 
             color: var(--text);
 
-            border-radius: 10px;
-
-            padding: 10px 14px;
+            border-radius: 9px;
         }
 
-        .danger-button {
+        .danger {
+            padding: 10px 14px;
+
             border: 1px solid var(--danger-dark);
 
-            background: #34151a;
+            background: var(--danger-dark);
 
-            color: #ffffff;
+            color: white;
 
-            border-radius: 10px;
-
-            padding: 10px 14px;
+            border-radius: 9px;
         }
 
-        /* =========================================================
+        .modal-error {
+            min-height: 20px;
+
+            color: var(--danger);
+
+            font-size: 12px;
+
+            margin-top: 10px;
+        }
+
+        /* =====================================================
            TOAST
-        ========================================================= */
+        ===================================================== */
 
         #toastContainer {
             position: fixed;
@@ -1358,7 +1339,7 @@
             right: 20px;
             bottom: 20px;
 
-            z-index: 500;
+            z-index: 600;
 
             display: flex;
 
@@ -1366,28 +1347,28 @@
 
             gap: 8px;
 
-            width: min(360px, calc(100vw - 40px));
+            width: min(370px, calc(100vw - 40px));
         }
 
         .toast {
+            padding: 12px 14px;
+
             border: 1px solid var(--border);
+
+            border-radius: 10px;
 
             background: #11151a;
 
             color: var(--text);
 
-            border-radius: 11px;
+            font-size: 12px;
 
-            padding: 12px 14px;
+            box-shadow: 0 18px 45px rgba(0,0,0,.4);
 
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-
-            font-size: 13px;
-
-            animation: toastIn 0.2s ease;
+            animation: toast .2s ease;
         }
 
-        @keyframes toastIn {
+        @keyframes toast {
             from {
                 opacity: 0;
                 transform: translateY(8px);
@@ -1399,17 +1380,13 @@
             }
         }
 
-        /* =========================================================
+        /* =====================================================
            RESPONSIVE
-        ========================================================= */
+        ===================================================== */
 
-        @media (max-width: 1050px) {
+        @media (max-width: 1100px) {
 
-            :root {
-                --sidebar-width: 210px;
-            }
-
-            .feature-grid {
+            .dashboard {
                 grid-template-columns:
                     repeat(2, minmax(0, 1fr));
             }
@@ -1418,14 +1395,14 @@
         @media (max-width: 760px) {
 
             :root {
-                --sidebar-width: 0px;
+                --sidebar: 0px;
             }
 
             .sidebar {
                 display: none;
             }
 
-            .main-area {
+            .main {
                 width: 100%;
                 margin-left: 0;
             }
@@ -1434,53 +1411,53 @@
                 padding: 20px 15px;
             }
 
-            .hero {
+            .home-heading {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
-            .quick-actions {
-                justify-content: flex-start;
-            }
-
-            .feature-grid {
+            .dashboard {
                 grid-template-columns: 1fr;
             }
 
             .bam-toolbar {
-                flex-direction: column;
+                flex-wrap: wrap;
             }
 
-            .bam-go {
-                min-height: 45px;
+            .bam-address {
+                width: 100%;
+                flex-basis: 100%;
+            }
+
+            .bam-button {
+                height: 44px;
             }
 
             .chat-window {
                 height: calc(100vh - 120px);
             }
+        }
+
+        @media (max-width: 520px) {
+
+            .login-card {
+                padding: 27px;
+            }
+
+            .brand h1 {
+                font-size: 36px;
+            }
 
             .topbar {
                 padding: 0 15px;
             }
-        }
-
-        @media (max-width: 500px) {
-
-            .login-box {
-                padding: 25px;
-            }
-
-            .login-brand h1 {
-                font-size: 34px;
-            }
 
             .message {
-                max-width: 92%;
+                max-width: 93%;
             }
         }
     </style>
 </head>
-
 
 <body>
 
@@ -1488,19 +1465,17 @@
          LOGIN
     ========================================================== -->
 
-    <section id="loginScreen" class="screen">
+    <section id="loginScreen">
 
-        <div class="login-shell">
+        <div class="login-container">
 
-            <div class="login-box">
+            <div class="login-card">
 
-                <div class="login-brand">
+                <div class="brand">
 
-                    <h1>BAM</h1>
+                    <h1>HYISX</h1>
 
-                    <p>
-                        Acceso privado
-                    </p>
+                    <p>PROYECT</p>
 
                 </div>
 
@@ -1515,7 +1490,7 @@
 
                         <input
                             id="loginEmail"
-                            class="text-input"
+                            class="input"
                             type="email"
                             autocomplete="off"
                             required
@@ -1532,7 +1507,7 @@
 
                         <input
                             id="loginPassword"
-                            class="text-input"
+                            class="input"
                             type="password"
                             autocomplete="new-password"
                             required
@@ -1543,7 +1518,7 @@
 
                     <button
                         type="submit"
-                        class="primary-button"
+                        class="primary"
                     >
                         Entrar
                     </button>
@@ -1552,8 +1527,8 @@
 
 
                 <div
-                    id="loginMessage"
-                    class="login-message"
+                    id="loginStatus"
+                    class="login-status"
                 ></div>
 
             </div>
@@ -1575,49 +1550,53 @@
 
             <aside class="sidebar">
 
-                <div class="sidebar-brand">
-                    BAM
+                <div class="sidebar-logo">
+                    HYISX
+                </div>
+
+                <div class="sidebar-subtitle">
+                    PROYECT
                 </div>
 
 
-                <nav class="sidebar-nav">
+                <nav class="nav">
 
                     <button
-                        class="nav-item active"
+                        class="nav-button active"
                         data-page="home"
                         onclick="showPage('home')"
                     >
-                        <span class="nav-icon">IN</span>
+                        <span class="nav-mark">IN</span>
                         <span>Inicio</span>
                     </button>
 
 
                     <button
-                        class="nav-item"
+                        class="nav-button"
                         data-page="bam"
                         onclick="showPage('bam')"
                     >
-                        <span class="nav-icon">BA</span>
+                        <span class="nav-mark">B</span>
                         <span>BAM</span>
                     </button>
 
 
                     <button
-                        class="nav-item"
+                        class="nav-button"
                         data-page="chats"
                         onclick="showPage('chats')"
                     >
-                        <span class="nav-icon">CH</span>
+                        <span class="nav-mark">CH</span>
                         <span>Chats</span>
                     </button>
 
 
                     <button
-                        class="nav-item"
+                        class="nav-button"
                         data-page="folders"
                         onclick="showPage('folders')"
                     >
-                        <span class="nav-icon">CA</span>
+                        <span class="nav-mark">CA</span>
                         <span>Carpetas</span>
                     </button>
 
@@ -1626,19 +1605,19 @@
 
                 <div class="sidebar-bottom">
 
-                    <div class="user-box">
+                    <div class="account-box">
 
-                        <div class="user-avatar">
+                        <div class="account-avatar">
                             ?
                         </div>
 
-                        <div class="user-info">
+                        <div class="account-text">
 
                             <strong>
                                 Desconocido
                             </strong>
 
-                            <span id="accountEmail">
+                            <span>
                                 Cuenta activa
                             </span>
 
@@ -1648,7 +1627,7 @@
 
 
                     <button
-                        class="logout-button"
+                        class="logout"
                         onclick="logoutUser()"
                     >
                         Cerrar sesión
@@ -1661,9 +1640,7 @@
 
             <!-- MAIN -->
 
-            <main class="main-area">
-
-                <!-- TOPBAR -->
+            <main class="main">
 
                 <header class="topbar">
 
@@ -1675,11 +1652,11 @@
                     </div>
 
 
-                    <div class="topbar-actions">
+                    <div class="top-actions">
 
                         <button
                             class="small-button"
-                            onclick="showShortcutModal()"
+                            onclick="openShortcutModal()"
                         >
                             Nuevo acceso
                         </button>
@@ -1698,23 +1675,24 @@
                     class="page content"
                 >
 
-                    <div class="hero">
+                    <div class="home-heading">
 
                         <div>
 
                             <h1>
-                                Inicio
+                                HYISX
                             </h1>
 
                             <p>
-                                Usuario:
-                                <strong>Desconocido</strong>
+                                PROYECT
+                                ·
+                                Usuario: Desconocido
                             </p>
 
                         </div>
 
 
-                        <div class="quick-actions">
+                        <div class="action-row">
 
                             <button
                                 class="small-button"
@@ -1742,50 +1720,50 @@
                     </div>
 
 
-                    <div class="feature-grid">
+                    <div class="dashboard">
 
                         <div
-                            class="feature-card large"
+                            class="dashboard-card"
                             onclick="showPage('bam')"
                         >
 
-                            <h3>
+                            <h2>
                                 BAM
-                            </h3>
+                            </h2>
 
                             <p>
-                                Busca direcciones web y abre páginas
-                                compatibles dentro de la interfaz.
+                                Herramienta de búsqueda y navegación
+                                integrada en HYISX.
                             </p>
 
                         </div>
 
 
                         <div
-                            class="feature-card large"
+                            class="dashboard-card"
                             onclick="showPage('chats')"
                         >
 
-                            <h3>
+                            <h2>
                                 Chats
-                            </h3>
+                            </h2>
 
                             <p>
-                                Accede a los cinco chats configurados
-                                y conserva sus mensajes mediante Firebase.
+                                Cinco espacios de conversación,
+                                incluyendo chats protegidos.
                             </p>
 
                         </div>
 
 
                         <div
-                            class="feature-card large"
+                            class="dashboard-card"
                             onclick="showPage('folders')"
                         >
 
-                            <h3>
+                            <h2>
                                 Carpetas
-                            </h3>
+                            </h2>
 
                             <p>
                                 Diez carpetas modificables,
@@ -1796,17 +1774,17 @@
 
 
                         <div
-                            class="feature-card large"
-                            onclick="showShortcutModal()"
+                            class="dashboard-card"
+                            onclick="openShortcutModal()"
                         >
 
-                            <h3>
+                            <h2>
                                 Accesos directos
-                            </h3>
+                            </h2>
 
                             <p>
-                                Crea tus propios accesos y
-                                organízalos desde el inicio.
+                                Añade y administra tus propias
+                                páginas desde el inicio.
                             </p>
 
                         </div>
@@ -1814,7 +1792,7 @@
                     </div>
 
 
-                    <div class="section-heading">
+                    <div class="section-head">
 
                         <h2>
                             Accesos directos
@@ -1822,7 +1800,7 @@
 
                         <button
                             class="small-button"
-                            onclick="showShortcutModal()"
+                            onclick="openShortcutModal()"
                         >
                             Crear
                         </button>
@@ -1847,7 +1825,7 @@
                     class="page hidden"
                 >
 
-                    <div class="bam-shell">
+                    <div class="bam-page">
 
                         <div class="bam-toolbar">
 
@@ -1858,6 +1836,7 @@
                                 Atrás
                             </button>
 
+
                             <button
                                 class="small-button"
                                 onclick="bamForward()"
@@ -1865,16 +1844,18 @@
                                 Adelante
                             </button>
 
+
                             <input
                                 id="bamInput"
-                                class="bam-input"
+                                class="bam-address"
                                 type="text"
-                                placeholder="Buscar o introducir una dirección web"
                                 autocomplete="off"
+                                placeholder="Buscar o introducir una dirección web"
                             >
 
+
                             <button
-                                class="bam-go"
+                                class="bam-button"
                                 onclick="useBAM()"
                             >
                                 Buscar
@@ -1883,27 +1864,29 @@
                         </div>
 
 
-                        <div class="bam-tabs">
+                        <div class="bam-subbar">
 
                             <button
-                                id="bamDirectTab"
+                                id="bamNavigateTab"
                                 class="bam-tab active"
-                                onclick="setBamMode('direct')"
+                                onclick="setBamMode('navigate')"
                             >
                                 Navegar
                             </button>
+
 
                             <button
                                 id="bamSearchTab"
                                 class="bam-tab"
                                 onclick="setBamMode('search')"
                             >
-                                Buscar
+                                Buscar en web
                             </button>
+
 
                             <button
                                 class="bam-tab"
-                                onclick="openExternalBam()"
+                                onclick="openBamExternal()"
                             >
                                 Abrir externamente
                             </button>
@@ -1911,29 +1894,28 @@
                         </div>
 
 
-                        <div class="bam-frame-wrap">
+                        <div class="bam-area">
 
                             <div
                                 id="bamEmpty"
                                 class="bam-empty"
                             >
 
-                                <div class="bam-empty-box">
+                                <div class="bam-empty-content">
 
-                                    <h2>
+                                    <h1>
                                         BAM
-                                    </h2>
+                                    </h1>
 
                                     <p>
-                                        Escribe una dirección web para
-                                        intentar abrirla dentro de BAM.
-                                        Algunas páginas bloquean la
-                                        incrustación dentro de otras páginas.
+                                        Introduce una dirección o
+                                        realiza una búsqueda.
                                     </p>
 
-                                    <div class="bam-warning">
-                                        Si una página no permite iframe,
-                                        usa "Abrir externamente".
+                                    <div class="bam-note">
+                                        Algunas páginas impiden que
+                                        otros sitios las carguen dentro
+                                        de un iframe.
                                     </div>
 
                                 </div>
@@ -1943,7 +1925,7 @@
 
                             <iframe
                                 id="bamFrame"
-                                title="BAM navegador"
+                                title="BAM"
                                 referrerpolicy="no-referrer"
                             ></iframe>
 
@@ -1963,7 +1945,7 @@
                     class="page content hidden"
                 >
 
-                    <div class="hero">
+                    <div class="home-heading">
 
                         <div>
 
@@ -1972,7 +1954,7 @@
                             </h1>
 
                             <p>
-                                Selecciona un espacio de conversación.
+                                Espacios de conversación de HYISX.
                             </p>
 
                         </div>
@@ -1981,15 +1963,15 @@
 
 
                     <div
-                        id="chatSelector"
-                        class="chat-list"
+                        id="chatGrid"
+                        class="chat-grid"
                     ></div>
 
 
                     <div
                         id="chatWindowContainer"
                         class="hidden"
-                        style="margin-top: 20px;"
+                        style="margin-top:20px;"
                     >
 
                         <div class="chat-window">
@@ -2005,6 +1987,7 @@
                                         Volver
                                     </button>
 
+
                                     <div>
 
                                         <div
@@ -2014,8 +1997,8 @@
                                             Chat
                                         </div>
 
-                                        <div class="chat-status">
-                                            Firebase
+                                        <div class="chat-state">
+                                            Conectado
                                         </div>
 
                                     </div>
@@ -2023,7 +2006,7 @@
                                 </div>
 
 
-                                <div class="chat-tools">
+                                <div class="chat-header-actions">
 
                                     <button
                                         class="small-button"
@@ -2043,20 +2026,21 @@
                             ></div>
 
 
-                            <div class="chat-composer">
+                            <div class="composer">
 
                                 <div
-                                    id="attachmentPreview"
-                                    class="attachment-preview"
+                                    id="selectedFile"
+                                    class="selected-file"
                                 >
 
-                                    <span id="attachmentName">
+                                    <span id="selectedFileName">
                                         Imagen seleccionada
                                     </span>
 
+
                                     <button
                                         class="icon-button danger"
-                                        onclick="cancelAttachment()"
+                                        onclick="cancelImage()"
                                     >
                                         X
                                     </button>
@@ -2068,7 +2052,7 @@
 
                                     <textarea
                                         id="messageInput"
-                                        class="composer-input"
+                                        class="message-input"
                                         placeholder="Escribe un mensaje..."
                                     ></textarea>
 
@@ -2077,7 +2061,7 @@
                                         id="imageInput"
                                         type="file"
                                         accept="image/png,image/jpeg,image/webp,image/gif"
-                                        onchange="handleImageSelect(event)"
+                                        onchange="selectImage(event)"
                                     >
 
 
@@ -2085,12 +2069,12 @@
                                         class="composer-button"
                                         onclick="document.getElementById('imageInput').click()"
                                     >
-                                        Img
+                                        IMG
                                     </button>
 
 
                                     <button
-                                        class="composer-button composer-send"
+                                        class="composer-button send-button"
                                         onclick="sendMessage()"
                                     >
                                         Enviar
@@ -2116,7 +2100,7 @@
                     class="page content hidden"
                 >
 
-                    <div class="hero">
+                    <div class="home-heading">
 
                         <div>
 
@@ -2126,7 +2110,6 @@
 
                             <p>
                                 Diez espacios modificables.
-                                Cinco están protegidos.
                             </p>
 
                         </div>
@@ -2149,40 +2132,43 @@
 
 
     <!-- =========================================================
-         LOGIN / CHAT / FOLDER / SHORTCUT MODALS
+         PASSWORD MODAL
     ========================================================== -->
 
     <div
         id="passwordModal"
-        class="modal-backdrop"
+        class="modal-background"
     >
 
         <div class="modal">
 
-            <h2 id="passwordModalTitle">
-                Contraseña
+            <h2 id="passwordTitle">
+                Acceso protegido
             </h2>
 
-            <p id="passwordModalText">
+            <p id="passwordDescription">
                 Introduce la contraseña.
             </p>
 
+
             <input
                 id="protectedPassword"
-                class="text-input"
+                class="input"
                 type="password"
                 autocomplete="new-password"
+                placeholder="Contraseña"
             >
 
+
             <div
-                id="secondPasswordField"
+                id="secondPasswordContainer"
                 class="hidden"
-                style="margin-top: 12px;"
+                style="margin-top:12px;"
             >
 
                 <input
                     id="protectedPassword2"
-                    class="text-input"
+                    class="input"
                     type="password"
                     autocomplete="new-password"
                     placeholder="Segunda contraseña"
@@ -2192,24 +2178,25 @@
 
 
             <div
-                id="passwordModalError"
-                class="login-message"
+                id="passwordError"
+                class="modal-error"
             ></div>
 
 
             <div class="modal-actions">
 
                 <button
-                    class="secondary-button"
+                    class="secondary"
                     onclick="closePasswordModal()"
                 >
                     Cancelar
                 </button>
 
+
                 <button
-                    class="primary-button"
-                    style="width: auto;"
-                    onclick="confirmPasswordModal()"
+                    class="primary"
+                    style="width:auto; padding:10px 17px;"
+                    onclick="confirmProtectedAccess()"
                 >
                     Entrar
                 </button>
@@ -2221,31 +2208,35 @@
     </div>
 
 
+    <!-- =========================================================
+         SHORTCUT MODAL
+    ========================================================== -->
+
     <div
         id="shortcutModal"
-        class="modal-backdrop"
+        class="modal-background"
     >
 
         <div class="modal">
 
             <h2>
-                Nuevo acceso directo
+                Acceso directo
             </h2>
 
             <p>
-                Añade una página al inicio.
+                Añade una página al inicio de HYISX.
             </p>
 
 
             <div class="field">
 
-                <label for="shortcutName">
+                <label>
                     Nombre
                 </label>
 
                 <input
                     id="shortcutName"
-                    class="text-input"
+                    class="input"
                     type="text"
                     maxlength="80"
                     autocomplete="off"
@@ -2256,14 +2247,15 @@
 
             <div class="field">
 
-                <label for="shortcutUrl">
+                <label>
                     Dirección
                 </label>
 
                 <input
                     id="shortcutUrl"
-                    class="text-input"
+                    class="input"
                     type="text"
+                    maxlength="500"
                     placeholder="https://..."
                     autocomplete="off"
                 >
@@ -2274,15 +2266,16 @@
             <div class="modal-actions">
 
                 <button
-                    class="secondary-button"
+                    class="secondary"
                     onclick="closeShortcutModal()"
                 >
                     Cancelar
                 </button>
 
+
                 <button
-                    class="primary-button"
-                    style="width: auto;"
+                    class="primary"
+                    style="width:auto; padding:10px 17px;"
                     onclick="saveShortcut()"
                 >
                     Guardar
@@ -2295,9 +2288,13 @@
     </div>
 
 
+    <!-- =========================================================
+         RENAME FOLDER
+    ========================================================== -->
+
     <div
         id="renameFolderModal"
-        class="modal-backdrop"
+        class="modal-background"
     >
 
         <div class="modal">
@@ -2310,25 +2307,28 @@
                 Cambia el nombre de esta carpeta.
             </p>
 
+
             <input
                 id="renameFolderInput"
-                class="text-input"
+                class="input"
                 type="text"
-                maxlength="50"
+                maxlength="60"
             >
+
 
             <div class="modal-actions">
 
                 <button
-                    class="secondary-button"
+                    class="secondary"
                     onclick="closeRenameFolderModal()"
                 >
                     Cancelar
                 </button>
 
+
                 <button
-                    class="primary-button"
-                    style="width: auto;"
+                    class="primary"
+                    style="width:auto; padding:10px 17px;"
                     onclick="saveFolderName()"
                 >
                     Guardar
@@ -2379,37 +2379,9 @@
         } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
-        /* =========================================================
-           ESTADO
-        ========================================================== */
-
-        let currentUser = null;
-
-        let activePage = "home";
-
-        let activeChat = null;
-
-        let chatListener = null;
-
-        let selectedChatToOpen = null;
-
-        let selectedFolderToOpen = null;
-
-        let selectedFolderToRename = null;
-
-        let selectedImageData = null;
-
-        let bamMode = "direct";
-
-
-        /*
-         * Los nombres visibles pueden cambiar.
-         *
-         * NO guardamos contraseñas de chats aquí.
-         *
-         * Los valores siguientes solamente indican
-         * qué chats requieren contraseña en la interfaz.
-         */
+        /* =====================================================
+           CONFIGURACIÓN
+        ===================================================== */
 
         const CHAT_CONFIG = {
 
@@ -2441,35 +2413,59 @@
         };
 
 
+        let folders = Array.from(
+            { length: 10 },
+            (_, index) => {
+
+                return {
+                    id: index + 1,
+                    name: `Carpeta ${index + 1}`,
+                    protected: index < 5
+                };
+
+            }
+        );
+
+
         let shortcuts = [
 
             {
-                id: "default-4chan",
+                id: "4chan-default",
                 name: "4chan",
-                url: "https://www.4chan.org",
-                locked: false
+                url: "https://www.4chan.org"
             }
 
         ];
 
 
-        let folders = Array.from(
-            { length: 10 },
-            (_, index) => ({
+        /* =====================================================
+           ESTADO
+        ===================================================== */
 
-                id: index + 1,
+        let currentUser = null;
 
-                name: `Carpeta ${index + 1}`,
+        let activeChat = null;
 
-                protected: index < 5
+        let chatUnsubscribe = null;
 
-            })
-        );
+        let selectedChat = null;
+
+        let selectedFolder = null;
+
+        let selectedFolderForRename = null;
+
+        let selectedImageData = null;
+
+        let editingShortcut = null;
+
+        let passwordMode = "chat";
+
+        let bamMode = "navigate";
 
 
-        /* =========================================================
+        /* =====================================================
            ELEMENTOS
-        ========================================================== */
+        ===================================================== */
 
         const loginScreen =
             document.getElementById("loginScreen");
@@ -2486,39 +2482,43 @@
         const loginPassword =
             document.getElementById("loginPassword");
 
-        const loginMessage =
-            document.getElementById("loginMessage");
+        const loginStatus =
+            document.getElementById("loginStatus");
 
 
-        /* =========================================================
+        /* =====================================================
            TOAST
-        ========================================================== */
+        ===================================================== */
 
         function toast(message) {
 
             const container =
                 document.getElementById("toastContainer");
 
-            const element =
+
+            const item =
                 document.createElement("div");
 
-            element.className = "toast";
 
-            element.textContent = message;
+            item.className = "toast";
 
-            container.appendChild(element);
+            item.textContent = message;
 
-            setTimeout(() => {
 
-                element.remove();
+            container.appendChild(item);
 
-            }, 3200);
+
+            setTimeout(
+                () => item.remove(),
+                3200
+            );
+
         }
 
 
-        /* =========================================================
+        /* =====================================================
            LOGIN
-        ========================================================== */
+        ===================================================== */
 
         loginForm.addEventListener(
             "submit",
@@ -2526,13 +2526,27 @@
 
                 event.preventDefault();
 
-                loginMessage.textContent = "";
+
+                loginStatus.textContent =
+                    "Comprobando acceso...";
+
 
                 const email =
                     loginEmail.value.trim();
 
+
                 const password =
                     loginPassword.value;
+
+
+                if (!email || !password) {
+
+                    loginStatus.textContent =
+                        "Completa los dos campos.";
+
+                    return;
+
+                }
 
 
                 try {
@@ -2543,21 +2557,82 @@
                         password
                     );
 
+
                     loginEmail.value = "";
+
                     loginPassword.value = "";
+
+                    loginStatus.textContent = "";
+
 
                 } catch (error) {
 
-                    console.error(error);
+                    console.error(
+                        "Firebase Login Error:",
+                        error
+                    );
 
-                    loginMessage.textContent =
-                        "No se pudo iniciar sesión.";
+
+                    switch (error.code) {
+
+                        case "auth/invalid-credential":
+
+                            loginStatus.textContent =
+                                "El correo o la contraseña son incorrectos.";
+
+                            break;
+
+
+                        case "auth/user-not-found":
+
+                            loginStatus.textContent =
+                                "No existe esta cuenta.";
+
+                            break;
+
+
+                        case "auth/wrong-password":
+
+                            loginStatus.textContent =
+                                "La contraseña es incorrecta.";
+
+                            break;
+
+
+                        case "auth/invalid-email":
+
+                            loginStatus.textContent =
+                                "El correo no es válido.";
+
+                            break;
+
+
+                        case "auth/too-many-requests":
+
+                            loginStatus.textContent =
+                                "Demasiados intentos. Inténtalo más tarde.";
+
+                            break;
+
+
+                        default:
+
+                            loginStatus.textContent =
+                                `Error de Firebase: ${
+                                    error.code || "desconocido"
+                                }`;
+
+                    }
 
                 }
 
             }
         );
 
+
+        /* =====================================================
+           AUTH STATE
+        ===================================================== */
 
         onAuthStateChanged(
             auth,
@@ -2567,26 +2642,43 @@
 
                     currentUser = user;
 
-                    loginScreen.style.display = "none";
 
-                    app.style.display = "block";
+                    loginScreen.style.display =
+                        "none";
 
-                    document
-                        .getElementById("accountEmail")
-                        .textContent =
-                            "Cuenta activa";
 
-                    await loadUserData();
+                    app.style.display =
+                        "block";
+
+
+                    await loadUserSettings();
+
+
+                    renderShortcuts();
+
+                    renderFolders();
+
+                    renderChats();
+
 
                     showPage("home");
+
 
                 } else {
 
                     currentUser = null;
 
-                    app.style.display = "none";
 
-                    loginScreen.style.display = "flex";
+                    app.style.display =
+                        "none";
+
+
+                    loginScreen.style.display =
+                        "flex";
+
+
+                    loginStatus.textContent = "";
+
 
                     closeChat();
 
@@ -2596,26 +2688,35 @@
         );
 
 
-        window.logoutUser = async function () {
+        /* =====================================================
+           LOGOUT
+        ===================================================== */
 
-            try {
+        window.logoutUser =
+            async function () {
 
-                await signOut(auth);
+                try {
 
-            } catch (error) {
+                    await signOut(auth);
 
-                console.error(error);
+                } catch (error) {
 
-            }
+                    console.error(error);
 
-        };
+                    toast(
+                        "No se pudo cerrar la sesión."
+                    );
+
+                }
+
+            };
 
 
-        /* =========================================================
-           USER DATA
-        ========================================================== */
+        /* =====================================================
+           USER SETTINGS
+        ===================================================== */
 
-        async function loadUserData() {
+        async function loadUserSettings() {
 
             if (!currentUser) {
                 return;
@@ -2624,7 +2725,7 @@
 
             try {
 
-                const shortcutsRef =
+                const shortcutRef =
                     doc(
                         db,
                         "users",
@@ -2634,25 +2735,33 @@
                     );
 
 
-                const shortcutsSnap =
-                    await getDoc(shortcutsRef);
+                const shortcutSnapshot =
+                    await getDoc(
+                        shortcutRef
+                    );
 
 
-                if (shortcutsSnap.exists()) {
+                if (
+                    shortcutSnapshot.exists()
+                ) {
 
                     const data =
-                        shortcutsSnap.data();
+                        shortcutSnapshot.data();
 
-                    if (Array.isArray(data.items)) {
 
-                        shortcuts = data.items;
+                    if (
+                        Array.isArray(data.items)
+                    ) {
+
+                        shortcuts =
+                            data.items;
 
                     }
 
                 }
 
 
-                const foldersRef =
+                const folderRef =
                     doc(
                         db,
                         "users",
@@ -2662,18 +2771,26 @@
                     );
 
 
-                const foldersSnap =
-                    await getDoc(foldersRef);
+                const folderSnapshot =
+                    await getDoc(
+                        folderRef
+                    );
 
 
-                if (foldersSnap.exists()) {
+                if (
+                    folderSnapshot.exists()
+                ) {
 
                     const data =
-                        foldersSnap.data();
+                        folderSnapshot.data();
 
-                    if (Array.isArray(data.items)) {
 
-                        folders = data.items;
+                    if (
+                        Array.isArray(data.items)
+                    ) {
+
+                        folders =
+                            data.items;
 
                     }
 
@@ -2690,17 +2807,10 @@
 
             }
 
-
-            renderShortcuts();
-
-            renderFolders();
-
-            renderChats();
-
         }
 
 
-        async function saveUserSettings() {
+        async function saveSettings() {
 
             if (!currentUser) {
                 return;
@@ -2751,11 +2861,11 @@
         }
 
 
-        /* =========================================================
-           PAGE NAVIGATION
-        ========================================================== */
+        /* =====================================================
+           PAGES
+        ===================================================== */
 
-        const pageNames = {
+        const pageTitles = {
 
             home: "Inicio",
 
@@ -2768,92 +2878,2139 @@
         };
 
 
-        window.showPage = function (page) {
+        window.showPage =
+            function (page) {
 
-            activePage = page;
+                closeChat();
 
-            closeChat();
 
-            const pages =
-                document.querySelectorAll(".page");
+                document
+                    .querySelectorAll(".page")
+                    .forEach(
+                        element =>
+                            element.classList.add("hidden")
+                    );
 
-            pages.forEach(
-                (element) => {
 
-                    element.classList.add("hidden");
+                const target =
+                    document.getElementById(
+                        `page-${page}`
+                    );
+
+
+                if (target) {
+
+                    target.classList.remove("hidden");
+
+                }
+
+
+                document
+                    .querySelectorAll(".nav-button")
+                    .forEach(
+                        button => {
+
+                            button.classList.toggle(
+                                "active",
+                                button.dataset.page === page
+                            );
+
+                        }
+                    );
+
+
+                document
+                    .getElementById("pageTitle")
+                    .textContent =
+                        pageTitles[page] ||
+                        "Inicio";
+
+            };
+
+
+        /* =====================================================
+           SHORTCUTS
+        ===================================================== */
+
+        function renderShortcuts() {
+
+            const grid =
+                document.getElementById(
+                    "shortcutGrid"
+                );
+
+
+            grid.innerHTML = "";
+
+
+            shortcuts.forEach(
+                shortcut => {
+
+                    const card =
+                        document.createElement("div");
+
+
+                    card.className =
+                        "shortcut";
+
+
+                    card.onclick =
+                        () =>
+                            openShortcut(
+                                shortcut.url
+                            );
+
+
+                    const name =
+                        document.createElement("div");
+
+
+                    name.className =
+                        "shortcut-name";
+
+                    name.textContent =
+                        shortcut.name;
+
+
+                    const url =
+                        document.createElement("div");
+
+
+                    url.className =
+                        "shortcut-url";
+
+                    url.textContent =
+                        shortcut.url;
+
+
+                    const actions =
+                        document.createElement("div");
+
+
+                    actions.className =
+                        "shortcut-actions";
+
+
+                    const edit =
+                        document.createElement("button");
+
+
+                    edit.className =
+                        "icon-button";
+
+
+                    edit.textContent =
+                        "E";
+
+
+                    edit.title =
+                        "Editar";
+
+
+                    edit.onclick =
+                        event => {
+
+                            event.stopPropagation();
+
+                            editShortcut(
+                                shortcut.id
+                            );
+
+                        };
+
+
+                    const remove =
+                        document.createElement("button");
+
+
+                    remove.className =
+                        "icon-button danger";
+
+
+                    remove.textContent =
+                        "X";
+
+
+                    remove.title =
+                        "Eliminar";
+
+
+                    remove.onclick =
+                        event => {
+
+                            event.stopPropagation();
+
+                            removeShortcut(
+                                shortcut.id
+                            );
+
+                        };
+
+
+                    actions.appendChild(edit);
+
+                    actions.appendChild(remove);
+
+
+                    card.appendChild(actions);
+
+                    card.appendChild(name);
+
+                    card.appendChild(url);
+
+
+                    grid.appendChild(card);
 
                 }
             );
 
+        }
 
-            const pageElement =
-                document.getElementById(
-                    `page-${page}`
+
+        function openShortcut(url) {
+
+            showPage("bam");
+
+
+            document
+                .getElementById("bamInput")
+                .value = url;
+
+
+            loadBamUrl(url);
+
+        }
+
+
+        window.openShortcutModal =
+            function () {
+
+                editingShortcut = null;
+
+
+                document
+                    .getElementById(
+                        "shortcutName"
+                    )
+                    .value = "";
+
+
+                document
+                    .getElementById(
+                        "shortcutUrl"
+                    )
+                    .value = "";
+
+
+                document
+                    .getElementById(
+                        "shortcutModal"
+                    )
+                    .classList.add("active");
+
+            };
+
+
+        window.closeShortcutModal =
+            function () {
+
+                document
+                    .getElementById(
+                        "shortcutModal"
+                    )
+                    .classList.remove("active");
+
+
+                editingShortcut = null;
+
+            };
+
+
+        window.saveShortcut =
+            async function () {
+
+                const name =
+                    document
+                        .getElementById(
+                            "shortcutName"
+                        )
+                        .value
+                        .trim();
+
+
+                const url =
+                    normalizeUrl(
+                        document
+                            .getElementById(
+                                "shortcutUrl"
+                            )
+                            .value
+                            .trim()
+                    );
+
+
+                if (!name || !url) {
+
+                    toast(
+                        "Completa el nombre y la dirección."
+                    );
+
+                    return;
+
+                }
+
+
+                if (editingShortcut) {
+
+                    const item =
+                        shortcuts.find(
+                            shortcut =>
+                                shortcut.id ===
+                                editingShortcut
+                        );
+
+
+                    if (item) {
+
+                        item.name = name;
+
+                        item.url = url;
+
+                    }
+
+
+                } else {
+
+                    shortcuts.push({
+
+                        id:
+                            `shortcut-${Date.now()}`,
+
+                        name,
+
+                        url
+
+                    });
+
+                }
+
+
+                try {
+
+                    await saveSettings();
+
+                    renderShortcuts();
+
+                    closeShortcutModal();
+
+                    toast(
+                        "Acceso guardado."
+                    );
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    toast(
+                        "No se pudo guardar el acceso."
+                    );
+
+                }
+
+            };
+
+
+        function editShortcut(id) {
+
+            const item =
+                shortcuts.find(
+                    shortcut =>
+                        shortcut.id === id
                 );
 
 
-            if (pageElement) {
+            if (!item) {
+                return;
+            }
 
-                pageElement.classList.remove("hidden");
+
+            editingShortcut =
+                id;
+
+
+            document
+                .getElementById(
+                    "shortcutName"
+                )
+                .value =
+                    item.name;
+
+
+            document
+                .getElementById(
+                    "shortcutUrl"
+                )
+                .value =
+                    item.url;
+
+
+            document
+                .getElementById(
+                    "shortcutModal"
+                )
+                .classList.add("active");
+
+        }
+
+
+        async function removeShortcut(id) {
+
+            if (
+                !confirm(
+                    "¿Eliminar este acceso directo?"
+                )
+            ) {
+
+                return;
 
             }
 
 
-            const navItems =
-                document.querySelectorAll(".nav-item");
+            shortcuts =
+                shortcuts.filter(
+                    shortcut =>
+                        shortcut.id !== id
+                );
 
-            navItems.forEach(
-                (item) => {
 
-                    item.classList.toggle(
+            try {
+
+                await saveSettings();
+
+                renderShortcuts();
+
+                toast(
+                    "Acceso eliminado."
+                );
+
+            } catch (error) {
+
+                console.error(error);
+
+                toast(
+                    "No se pudo eliminar."
+                );
+
+            }
+
+        }
+
+
+        function normalizeUrl(value) {
+
+            if (!value) {
+                return "";
+            }
+
+
+            if (
+                value.startsWith("http://") ||
+                value.startsWith("https://")
+            ) {
+
+                return value;
+
+            }
+
+
+            return `https://${value}`;
+
+        }
+
+
+        /* =====================================================
+           BAM
+        ===================================================== */
+
+        const bamInput =
+            document.getElementById("bamInput");
+
+
+        bamInput.addEventListener(
+            "keydown",
+            event => {
+
+                if (event.key === "Enter") {
+
+                    useBAM();
+
+                }
+
+            }
+        );
+
+
+        window.setBamMode =
+            function (mode) {
+
+                bamMode = mode;
+
+
+                document
+                    .getElementById(
+                        "bamNavigateTab"
+                    )
+                    .classList.toggle(
                         "active",
-                        item.dataset.page === page
+                        mode === "navigate"
+                    );
+
+
+                document
+                    .getElementById(
+                        "bamSearchTab"
+                    )
+                    .classList.toggle(
+                        "active",
+                        mode === "search"
+                    );
+
+            };
+
+
+        window.useBAM =
+            function () {
+
+                const value =
+                    bamInput.value.trim();
+
+
+                if (!value) {
+
+                    toast(
+                        "Escribe algo primero."
+                    );
+
+                    return;
+
+                }
+
+
+                if (bamMode === "search") {
+
+                    const url =
+                        `https://www.google.com/search?q=${
+                            encodeURIComponent(value)
+                        }`;
+
+
+                    window.open(
+                        url,
+                        "_blank",
+                        "noopener,noreferrer"
+                    );
+
+
+                    return;
+
+                }
+
+
+                loadBamUrl(
+                    normalizeUrl(value)
+                );
+
+            };
+
+
+        function loadBamUrl(url) {
+
+            const frame =
+                document.getElementById(
+                    "bamFrame"
+                );
+
+
+            const empty =
+                document.getElementById(
+                    "bamEmpty"
+                );
+
+
+            frame.src = url;
+
+            frame.style.display =
+                "block";
+
+            empty.style.display =
+                "none";
+
+        }
+
+
+        window.openBamExternal =
+            function () {
+
+                const value =
+                    bamInput.value.trim();
+
+
+                if (!value) {
+
+                    toast(
+                        "Escribe una dirección primero."
+                    );
+
+                    return;
+
+                }
+
+
+                window.open(
+                    normalizeUrl(value),
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            };
+
+
+        window.bamBack =
+            function () {
+
+                try {
+
+                    document
+                        .getElementById(
+                            "bamFrame"
+                        )
+                        .contentWindow
+                        .history
+                        .back();
+
+                } catch {
+
+                    toast(
+                        "El navegador no permite controlar esta página."
+                    );
+
+                }
+
+            };
+
+
+        window.bamForward =
+            function () {
+
+                try {
+
+                    document
+                        .getElementById(
+                            "bamFrame"
+                        )
+                        .contentWindow
+                        .history
+                        .forward();
+
+                } catch {
+
+                    toast(
+                        "El navegador no permite controlar esta página."
+                    );
+
+                }
+
+            };
+
+
+        /* =====================================================
+           CHATS
+        ===================================================== */
+
+        function renderChats() {
+
+            const grid =
+                document.getElementById(
+                    "chatGrid"
+                );
+
+
+            grid.innerHTML = "";
+
+
+            Object.entries(
+                CHAT_CONFIG
+            ).forEach(
+                ([id, config]) => {
+
+                    const button =
+                        document.createElement("button");
+
+
+                    button.className =
+                        "chat-card";
+
+
+                    const protection =
+                        config.protection === 0
+                            ? "Sin contraseña"
+                            : config.protection === 1
+                                ? "Una contraseña"
+                                : "Doble contraseña";
+
+
+                    button.innerHTML = `
+                        <h3>${config.name}</h3>
+
+                        <p>
+                            Espacio de conversación
+                            dentro de HYISX.
+                        </p>
+
+                        <span class="chat-protection">
+                            ${protection}
+                        </span>
+                    `;
+
+
+                    button.onclick =
+                        () =>
+                            requestChatAccess(id);
+
+
+                    grid.appendChild(button);
+
+                }
+            );
+
+        }
+
+
+        function requestChatAccess(id) {
+
+            const config =
+                CHAT_CONFIG[id];
+
+
+            if (!config) {
+                return;
+            }
+
+
+            if (config.protection === 0) {
+
+                openChat(id);
+
+                return;
+
+            }
+
+
+            passwordMode =
+                "chat";
+
+
+            selectedChat =
+                id;
+
+
+            document
+                .getElementById(
+                    "passwordTitle"
+                )
+                .textContent =
+                    config.name;
+
+
+            document
+                .getElementById(
+                    "passwordDescription"
+                )
+                .textContent =
+                    config.protection === 2
+                        ? "Introduce las dos contraseñas."
+                        : "Introduce la contraseña.";
+
+
+            document
+                .getElementById(
+                    "protectedPassword"
+                )
+                .value = "";
+
+
+            document
+                .getElementById(
+                    "protectedPassword2"
+                )
+                .value = "";
+
+
+            document
+                .getElementById(
+                    "secondPasswordContainer"
+                )
+                .classList.toggle(
+                    "hidden",
+                    config.protection !== 2
+                );
+
+
+            document
+                .getElementById(
+                    "passwordError"
+                )
+                .textContent = "";
+
+
+            document
+                .getElementById(
+                    "passwordModal"
+                )
+                .classList.add("active");
+
+        }
+
+
+        window.closePasswordModal =
+            function () {
+
+                document
+                    .getElementById(
+                        "passwordModal"
+                    )
+                    .classList.remove("active");
+
+
+                selectedChat = null;
+
+                selectedFolder = null;
+
+            };
+
+
+        window.confirmProtectedAccess =
+            function () {
+
+                const first =
+                    document
+                        .getElementById(
+                            "protectedPassword"
+                        )
+                        .value;
+
+
+                const second =
+                    document
+                        .getElementById(
+                            "protectedPassword2"
+                        )
+                        .value;
+
+
+                if (!first) {
+
+                    document
+                        .getElementById(
+                            "passwordError"
+                        )
+                        .textContent =
+                            "Introduce la contraseña.";
+
+                    return;
+
+                }
+
+
+                if (
+                    passwordMode === "chat" &&
+                    CHAT_CONFIG[selectedChat]?.protection === 2 &&
+                    !second
+                ) {
+
+                    document
+                        .getElementById(
+                            "passwordError"
+                        )
+                        .textContent =
+                            "Introduce la segunda contraseña.";
+
+                    return;
+
+                }
+
+
+                /*
+                 * IMPORTANTE:
+                 *
+                 * Esta pantalla visualmente está preparada.
+                 * Las contraseñas reales de los chats no se
+                 * guardan aquí.
+                 *
+                 * Las validaremos mediante Firebase cuando
+                 * terminemos las reglas/estructura de seguridad.
+                 */
+
+
+                if (passwordMode === "folder") {
+
+                    const folder =
+                        folders.find(
+                            item =>
+                                item.id ===
+                                selectedFolder
+                        );
+
+
+                    closePasswordModal();
+
+
+                    if (folder) {
+
+                        toast(
+                            `${folder.name} abierta.`
+                        );
+
+                    }
+
+
+                    return;
+
+                }
+
+
+                const chat =
+                    selectedChat;
+
+
+                closePasswordModal();
+
+                openChat(chat);
+
+            };
+
+
+        function openChat(id) {
+
+            activeChat = id;
+
+
+            document
+                .getElementById(
+                    "chatGrid"
+                )
+                .classList.add("hidden");
+
+
+            document
+                .getElementById(
+                    "chatWindowContainer"
+                )
+                .classList.remove("hidden");
+
+
+            document
+                .getElementById(
+                    "activeChatTitle"
+                )
+                .textContent =
+                    CHAT_CONFIG[id].name;
+
+
+            startChatListener(id);
+
+        }
+
+
+        window.closeChat =
+            function () {
+
+                activeChat = null;
+
+
+                if (chatUnsubscribe) {
+
+                    chatUnsubscribe();
+
+                    chatUnsubscribe = null;
+
+                }
+
+
+                const grid =
+                    document.getElementById(
+                        "chatGrid"
+                    );
+
+
+                const window =
+                    document.getElementById(
+                        "chatWindowContainer"
+                    );
+
+
+                if (grid) {
+
+                    grid.classList.remove(
+                        "hidden"
+                    );
+
+                }
+
+
+                if (window) {
+
+                    window.classList.add(
+                        "hidden"
+                    );
+
+                }
+
+
+                cancelImage();
+
+            };
+
+
+        function startChatListener(chatId) {
+
+            if (!currentUser) {
+                return;
+            }
+
+
+            if (chatUnsubscribe) {
+
+                chatUnsubscribe();
+
+                chatUnsubscribe = null;
+
+            }
+
+
+            const messagesRef =
+                collection(
+                    db,
+                    "chats",
+                    chatId,
+                    "messages"
+                );
+
+
+            const messagesQuery =
+                query(
+                    messagesRef,
+                    orderBy(
+                        "createdAt",
+                        "asc"
+                    )
+                );
+
+
+            chatUnsubscribe =
+                onSnapshot(
+                    messagesQuery,
+
+                    snapshot => {
+
+                        const container =
+                            document.getElementById(
+                                "messages"
+                            );
+
+
+                        container.innerHTML =
+                            "";
+
+
+                        snapshot.forEach(
+                            item => {
+
+                                renderMessage(
+                                    item.id,
+                                    item.data()
+                                );
+
+                            }
+                        );
+
+
+                        container.scrollTop =
+                            container.scrollHeight;
+
+                    },
+
+                    error => {
+
+                        console.error(error);
+
+                        toast(
+                            "No se pudieron leer los mensajes. Revisa las reglas de Firestore."
+                        );
+
+                    }
+                );
+
+        }
+
+
+        function renderMessage(id, data) {
+
+            const container =
+                document.getElementById(
+                    "messages"
+                );
+
+
+            const row =
+                document.createElement("div");
+
+
+            const mine =
+                currentUser &&
+                data.uid === currentUser.uid;
+
+
+            row.className =
+                `message-row${
+                    mine ? " mine" : ""
+                }`;
+
+
+            const message =
+                document.createElement("div");
+
+
+            message.className =
+                `message${
+                    mine ? " mine" : ""
+                }`;
+
+
+            const author =
+                document.createElement("div");
+
+
+            author.className =
+                "message-author";
+
+
+            author.textContent =
+                "Desconocido";
+
+
+            message.appendChild(
+                author
+            );
+
+
+            if (data.text) {
+
+                const text =
+                    document.createElement("div");
+
+
+                text.className =
+                    "message-text";
+
+
+                text.textContent =
+                    data.text;
+
+
+                message.appendChild(
+                    text
+                );
+
+            }
+
+
+            if (data.imageData) {
+
+                const image =
+                    document.createElement("img");
+
+
+                image.className =
+                    "message-image";
+
+
+                image.src =
+                    data.imageData;
+
+
+                image.alt =
+                    "Imagen enviada";
+
+
+                message.appendChild(
+                    image
+                );
+
+            }
+
+
+            const time =
+                document.createElement("div");
+
+
+            time.className =
+                "message-time";
+
+
+            if (
+                data.createdAt &&
+                data.createdAt.toDate
+            ) {
+
+                time.textContent =
+                    data.createdAt
+                        .toDate()
+                        .toLocaleTimeString(
+                            [],
+                            {
+                                hour: "2-digit",
+                                minute: "2-digit"
+                            }
+                        );
+
+            } else {
+
+                time.textContent =
+                    "Ahora";
+
+            }
+
+
+            message.appendChild(
+                time
+            );
+
+
+            const deleteButton =
+                document.createElement(
+                    "button"
+                );
+
+
+            deleteButton.className =
+                "message-delete";
+
+
+            deleteButton.textContent =
+                "X";
+
+
+            deleteButton.title =
+                "Eliminar mensaje";
+
+
+            deleteButton.onclick =
+                () =>
+                    deleteMessage(id);
+
+
+            message.appendChild(
+                deleteButton
+            );
+
+
+            row.appendChild(
+                message
+            );
+
+
+            container.appendChild(
+                row
+            );
+
+        }
+
+
+        window.sendMessage =
+            async function () {
+
+                if (
+                    !currentUser ||
+                    !activeChat
+                ) {
+
+                    toast(
+                        "No hay un chat activo."
+                    );
+
+                    return;
+
+                }
+
+
+                const input =
+                    document.getElementById(
+                        "messageInput"
+                    );
+
+
+                const text =
+                    input.value.trim();
+
+
+                if (
+                    !text &&
+                    !selectedImageData
+                ) {
+
+                    return;
+
+                }
+
+
+                try {
+
+                    await addDoc(
+
+                        collection(
+                            db,
+                            "chats",
+                            activeChat,
+                            "messages"
+                        ),
+
+                        {
+
+                            uid:
+                                currentUser.uid,
+
+                            text:
+                                text,
+
+                            imageData:
+                                selectedImageData,
+
+                            createdAt:
+                                serverTimestamp()
+
+                        }
+
+                    );
+
+
+                    input.value = "";
+
+                    cancelImage();
+
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    toast(
+                        "No se pudo enviar el mensaje. Revisa Firestore."
+                    );
+
+                }
+
+            };
+
+
+        async function deleteMessage(id) {
+
+            if (!activeChat) {
+                return;
+            }
+
+
+            if (
+                !confirm(
+                    "¿Eliminar este mensaje?"
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            try {
+
+                await deleteDoc(
+
+                    doc(
+                        db,
+                        "chats",
+                        activeChat,
+                        "messages",
+                        id
+                    )
+
+                );
+
+            } catch (error) {
+
+                console.error(error);
+
+                toast(
+                    "Firebase rechazó la eliminación."
+                );
+
+            }
+
+        }
+
+
+        window.deleteAllMessages =
+            async function () {
+
+                if (!activeChat) {
+                    return;
+                }
+
+
+                if (
+                    !confirm(
+                        "¿Borrar todos los mensajes de este chat?"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                try {
+
+                    const reference =
+                        collection(
+                            db,
+                            "chats",
+                            activeChat,
+                            "messages"
+                        );
+
+
+                    const snapshot =
+                        await getDocs(
+                            reference
+                        );
+
+
+                    let batch =
+                        writeBatch(db);
+
+
+                    let count = 0;
+
+
+                    for (
+                        const item
+                        of snapshot.docs
+                    ) {
+
+                        batch.delete(
+                            item.ref
+                        );
+
+
+                        count++;
+
+
+                        if (count === 500) {
+
+                            await batch.commit();
+
+                            batch =
+                                writeBatch(db);
+
+                            count = 0;
+
+                        }
+
+                    }
+
+
+                    if (count > 0) {
+
+                        await batch.commit();
+
+                    }
+
+
+                    toast(
+                        "Chat borrado."
+                    );
+
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    toast(
+                        "No se pudo borrar el chat."
+                    );
+
+                }
+
+            };
+
+
+        /* =====================================================
+           IMAGES
+        ===================================================== */
+
+        window.selectImage =
+            function (event) {
+
+                const file =
+                    event.target.files[0];
+
+
+                if (!file) {
+                    return;
+                }
+
+
+                if (
+                    !file.type.startsWith(
+                        "image/"
+                    )
+                ) {
+
+                    toast(
+                        "Selecciona una imagen."
+                    );
+
+                    return;
+
+                }
+
+
+                compressImage(
+                    file,
+                    data => {
+
+                        selectedImageData =
+                            data;
+
+
+                        document
+                            .getElementById(
+                                "selectedFile"
+                            )
+                            .style.display =
+                                "flex";
+
+
+                        document
+                            .getElementById(
+                                "selectedFileName"
+                            )
+                            .textContent =
+                                file.name;
+
+                    }
+                );
+
+            };
+
+
+        function compressImage(
+            file,
+            callback
+        ) {
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                () => {
+
+                    const image =
+                        new Image();
+
+
+                    image.onload =
+                        () => {
+
+                            const max =
+                                900;
+
+
+                            let width =
+                                image.width;
+
+
+                            let height =
+                                image.height;
+
+
+                            if (width > height) {
+
+                                if (width > max) {
+
+                                    height =
+                                        Math.round(
+                                            height *
+                                            max /
+                                            width
+                                        );
+
+                                    width =
+                                        max;
+
+                                }
+
+                            } else {
+
+                                if (height > max) {
+
+                                    width =
+                                        Math.round(
+                                            width *
+                                            max /
+                                            height
+                                        );
+
+                                    height =
+                                        max;
+
+                                }
+
+                            }
+
+
+                            const canvas =
+                                document.createElement(
+                                    "canvas"
+                                );
+
+
+                            canvas.width =
+                                width;
+
+
+                            canvas.height =
+                                height;
+
+
+                            const context =
+                                canvas.getContext(
+                                    "2d"
+                                );
+
+
+                            context.drawImage(
+                                image,
+                                0,
+                                0,
+                                width,
+                                height
+                            );
+
+
+                            const data =
+                                canvas.toDataURL(
+                                    "image/jpeg",
+                                    0.72
+                                );
+
+
+                            /*
+                             * Protección para no intentar
+                             * guardar imágenes gigantes.
+                             */
+
+                            if (
+                                data.length >
+                                650000
+                            ) {
+
+                                toast(
+                                    "La imagen es demasiado grande incluso después de comprimirla."
+                                );
+
+                                cancelImage();
+
+                                return;
+
+                            }
+
+
+                            callback(data);
+
+                        };
+
+
+                    image.src =
+                        reader.result;
+
+                };
+
+
+            reader.readAsDataURL(
+                file
+            );
+
+        }
+
+
+        window.cancelImage =
+            function () {
+
+                selectedImageData =
+                    null;
+
+
+                document
+                    .getElementById(
+                        "imageInput"
+                    )
+                    .value = "";
+
+
+                document
+                    .getElementById(
+                        "selectedFile"
+                    )
+                    .style.display =
+                        "none";
+
+            };
+
+
+        /* =====================================================
+           FOLDERS
+        ===================================================== */
+
+        function renderFolders() {
+
+            const grid =
+                document.getElementById(
+                    "folderGrid"
+                );
+
+
+            grid.innerHTML = "";
+
+
+            folders.forEach(
+                folder => {
+
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    card.className =
+                        "folder";
+
+
+                    const top =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    top.className =
+                        "folder-top";
+
+
+                    const info =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    const number =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    number.className =
+                        "folder-number";
+
+
+                    number.textContent =
+                        `CARPETA ${folder.id}`;
+
+
+                    const name =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    name.className =
+                        "folder-name";
+
+
+                    name.textContent =
+                        folder.name;
+
+
+                    const status =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    status.className =
+                        "folder-status";
+
+
+                    status.textContent =
+                        folder.protected
+                            ? "Protegida"
+                            : "Sin contraseña";
+
+
+                    info.appendChild(
+                        number
+                    );
+
+                    info.appendChild(
+                        name
+                    );
+
+                    info.appendChild(
+                        status
+                    );
+
+
+                    const edit =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    edit.className =
+                        "icon-button";
+
+
+                    edit.textContent =
+                        "E";
+
+
+                    edit.onclick =
+                        event => {
+
+                            event.stopPropagation();
+
+                            openRenameFolder(
+                                folder.id
+                            );
+
+                        };
+
+
+                    top.appendChild(
+                        info
+                    );
+
+
+                    top.appendChild(
+                        edit
+                    );
+
+
+                    const bottom =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    bottom.className =
+                        "folder-bottom";
+
+
+                    const open =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    open.className =
+                        "small-button";
+
+
+                    open.textContent =
+                        "Abrir";
+
+
+                    open.onclick =
+                        () =>
+                            openFolder(
+                                folder.id
+                            );
+
+
+                    bottom.appendChild(
+                        open
+                    );
+
+
+                    card.appendChild(
+                        top
+                    );
+
+
+                    card.appendChild(
+                        bottom
+                    );
+
+
+                    grid.appendChild(
+                        card
                     );
 
                 }
             );
 
-
-            document
-                .getElementById("pageTitle")
-                .textContent =
-                    pageNames[page] || "Inicio";
-
-        };
+        }
 
 
-        /* =========================================================
-           SHORTCUTS
-        ========================================================== */
+        function openFolder(id) {
 
-        function renderShortcuts() {
-
-            const grid =
-                document.getElementById("shortcutGrid");
-
-            grid.innerHTML = "";
+            const folder =
+                folders.find(
+                    item =>
+                        item.id === id
+                );
 
 
-            if (!shortcuts.length) {
-
-                const empty =
-                    document.createElement("div");
-
-                empty.className = "feature-card";
-
-                empty.innerHTML = `
-                    <h3>No hay accesos</h3>
-                    <p>
-                        Crea un acceso directo para que aparezca aquí.
-                    </p>
-                `;
-
-                grid.appendChild(empty);
-
+            if (!folder) {
                 return;
             }
 
 
-            shortcuts.forEach(
-                (shortcut) => {
+            if (!folder.protected) {
+
+                toast(
+                    `${folder.name} abierta.`
+                );
+
+                return;
+
+            }
+
+
+            passwordMode =
+                "folder";
+
+
+            selectedFolder =
+                id;
+
+
+            document
+                .getElementById(
+                    "passwordTitle"
+                )
+                .textContent =
+                    folder.name;
+
+
+            document
+                .getElementById(
+                    "passwordDescription"
+                )
+                .textContent =
+                    "Introduce la contraseña de la carpeta.";
+
+
+            document
+                .getElementById(
+                    "protectedPassword"
+                )
+                .value = "";
+
+
+            document
+                .getElementById(
+                    "protectedPassword2"
+                )
+                .value = "";
+
+
+            document
+                .getElementById(
+                    "secondPasswordContainer"
+                )
+                .classList.add("hidden");
+
+
+            document
+                .getElementById(
+                    "passwordError"
+                )
+                .textContent = "";
+
+
+            document
+                .getElementById(
+                    "passwordModal"
+                )
+                .classList.add("active");
+
+        }
+
+
+        function openRenameFolder(id) {
+
+            selectedFolderForRename =
+                id;
+
+
+            const folder =
+                folders.find(
+                    item =>
+                        item.id === id
+                );
+
+
+            if (!folder) {
+                return;
+            }
+
+
+            document
+                .getElementById(
+                    "renameFolderInput"
+                )
+                .value =
+                    folder.name;
+
+
+            document
+                .getElementById(
+                    "renameFolderModal"
+                )
+                .classList.add("active");
+
+        }
+
+
+        window.closeRenameFolderModal =
+            function () {
+
+                document
+                    .getElementById(
+                        "renameFolderModal"
+                    )
+                    .classList.remove("active");
+
+
+                selectedFolderForRename =
+                    null;
+
+            };
+
+
+        window.saveFolderName =
+            async function () {
+
+                const folder =
+                    folders.find(
+                        item =>
+                            item.id ===
+                            selectedFolderForRename
+                    );
+
+
+                if (!folder) {
+                    return;
+                }
+
+
+                const name =
+                    document
+                        .getElementById(
+                            "renameFolderInput"
+                        )
+                        .value
+                        .trim();
+
+
+                if (!name) {
+
+                    toast(
+                        "Escribe un nombre."
+                    );
+
+                    return;
+
+                }
+
+
+                folder.name =
+                    name;
+
+
+                try {
+
+                    await saveSettings();
+
+                    renderFolders();
+
+                    closeRenameFolderModal();
+
+                    toast(
+                        "Carpeta actualizada."
+                    );
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    toast(
+                        "No se pudo guardar la carpeta."
+                    );
+
+                }
+
+            };
+
+
+        /* =====================================================
+           MESSAGE ENTER
+        ===================================================== */
+
+        document
+            .getElementById(
+                "messageInput"
+            )
+            .addEventListener(
+                "keydown",
+                event => {
+
+                    if (
+                        event.key === "Enter" &&
+                        !event.shiftKey
+                    ) {
+
+                        event.preventDefault();
+
+                        sendMessage();
+
+                    }
+
+                }
+            );
+
+
+        /* =====================================================
+           INITIAL RENDER
+        ===================================================== */
+
+        renderChats();
+
+        renderShortcuts();
+
+        renderFolders();
+
+    </script>
+
+</body>
+</html>
 ```
