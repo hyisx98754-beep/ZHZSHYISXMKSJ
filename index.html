@@ -916,8 +916,6 @@
         ===================================================== */
 
         .ia-page {
-            width: 100%;
-
             min-height: calc(100vh - var(--topbar));
 
             display: flex;
@@ -941,12 +939,20 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .ia-toolbar-title {
+        .ia-toolbar-left {
             display: flex;
 
             align-items: center;
 
             gap: 10px;
+        }
+
+        .ia-toolbar-title {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 2px;
         }
 
         .ia-toolbar-title strong {
@@ -956,7 +962,7 @@
         .ia-toolbar-title span {
             color: var(--muted);
 
-            font-size: 11px;
+            font-size: 10px;
         }
 
         .ia-delete-button {
@@ -1193,6 +1199,416 @@
             color: var(--muted);
 
             font-size: 10px;
+        }
+
+        /* =====================================================
+           ADAI
+        ===================================================== */
+
+        .adai-page {
+            min-height: calc(100vh - var(--topbar));
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .adai-toolbar {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            padding: 18px 24px;
+
+            background: #0b0e12;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .adai-toolbar-left {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .adai-toolbar-title {
+            font-size: 15px;
+
+            font-weight: 850;
+        }
+
+        .adai-toolbar-subtitle {
+            margin-top: 2px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+        }
+
+        .adai-select-button {
+            padding: 9px 13px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            background: var(--panel);
+
+            color: var(--text2);
+
+            transition: .18s;
+        }
+
+        .adai-select-button:hover {
+            background: var(--panel3);
+
+            color: var(--text);
+
+            border-color: var(--border2);
+        }
+
+        .adai-main {
+            flex: 1;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.45fr)
+                minmax(320px, .85fr);
+
+            min-height: 650px;
+
+            background: #050608;
+        }
+
+        .adai-preview {
+            min-width: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            border-right: 1px solid var(--border);
+        }
+
+        .adai-panel-header {
+            min-height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            padding: 0 18px;
+
+            background: #0b0e12;
+
+            border-bottom: 1px solid var(--border);
+
+            color: var(--text2);
+
+            font-size: 10px;
+
+            font-weight: 850;
+
+            letter-spacing: .8px;
+
+            text-transform: uppercase;
+        }
+
+        .adai-preview-body {
+            flex: 1;
+
+            min-height: 598px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 22px;
+
+            overflow: auto;
+
+            background: #050608;
+        }
+
+        .adai-empty {
+            max-width: 600px;
+
+            text-align: center;
+        }
+
+        .adai-empty h1 {
+            margin-bottom: 12px;
+
+            font-size: 42px;
+
+            letter-spacing: 5px;
+        }
+
+        .adai-empty p {
+            color: var(--text2);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .adai-file-input {
+            display: none;
+        }
+
+        .adai-preview-text {
+            width: 100%;
+
+            min-height: 550px;
+
+            padding: 18px;
+
+            overflow: auto;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: #080b0f;
+
+            color: var(--text2);
+
+            font-family:
+                "Consolas",
+                "Courier New",
+                monospace;
+
+            font-size: 12px;
+
+            line-height: 1.65;
+
+            white-space: pre-wrap;
+
+            word-break: break-word;
+        }
+
+        .adai-preview-image {
+            max-width: 100%;
+
+            max-height: 560px;
+
+            object-fit: contain;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: #080b0f;
+        }
+
+        .adai-preview-frame {
+            width: 100%;
+
+            height: 580px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: white;
+        }
+
+        .adai-preview-generic {
+            width: 100%;
+
+            max-width: 700px;
+
+            padding: 28px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            background: #0b0f13;
+
+            text-align: center;
+        }
+
+        .adai-preview-generic strong {
+            display: block;
+
+            margin-bottom: 9px;
+
+            font-size: 18px;
+        }
+
+        .adai-preview-generic span {
+            color: var(--text2);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+        .adai-info {
+            min-width: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            background: #090c10;
+        }
+
+        .adai-info-body {
+            flex: 1;
+
+            padding: 20px;
+
+            overflow-y: auto;
+        }
+
+        .adai-file-name {
+            margin-bottom: 18px;
+
+            font-size: 17px;
+
+            font-weight: 850;
+
+            word-break: break-word;
+        }
+
+        .adai-detail {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding: 10px 0;
+
+            border-bottom: 1px solid var(--border);
+
+            font-size: 11px;
+        }
+
+        .adai-detail span:first-child {
+            color: var(--muted);
+        }
+
+        .adai-detail span:last-child {
+            color: var(--text2);
+
+            text-align: right;
+
+            word-break: break-word;
+        }
+
+        .adai-result-box {
+            margin-top: 22px;
+
+            padding: 18px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: var(--panel);
+        }
+
+        .adai-result-title {
+            margin-bottom: 10px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+
+            font-weight: 850;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+        .adai-result {
+            margin-bottom: 10px;
+
+            font-size: 23px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+        }
+
+        .adai-result.safe {
+            color: var(--success);
+        }
+
+        .adai-result.suspicious {
+            color: var(--warning);
+        }
+
+        .adai-result.virus,
+        .adai-result.malware {
+            color: var(--danger);
+        }
+
+        .adai-result.unknown {
+            color: var(--text2);
+        }
+
+        .adai-result-reason {
+            color: var(--text2);
+
+            font-size: 12px;
+
+            line-height: 1.65;
+
+            white-space: pre-wrap;
+
+            word-break: break-word;
+        }
+
+        .adai-note {
+            margin-top: 15px;
+
+            padding: 11px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+
+            line-height: 1.6;
+        }
+
+        .adai-actions {
+            display: flex;
+
+            gap: 8px;
+
+            padding: 14px 18px;
+
+            border-top: 1px solid var(--border);
+
+            background: #0b0e12;
+        }
+
+        .adai-actions button {
+            flex: 1;
+
+            min-height: 42px;
         }
 
         /* =====================================================
@@ -1893,6 +2309,28 @@
             .ia-send {
                 width: 100%;
             }
+
+            .adai-toolbar {
+                flex-wrap: wrap;
+            }
+
+            .adai-main {
+                grid-template-columns: 1fr;
+            }
+
+            .adai-preview {
+                border-right: none;
+
+                border-bottom: 1px solid var(--border);
+            }
+
+            .adai-preview-body {
+                min-height: 430px;
+            }
+
+            .adai-info {
+                min-height: 450px;
+            }
         }
 
         @media (max-width: 520px) {
@@ -1917,6 +2355,14 @@
                 width: 100%;
 
                 flex-basis: 100%;
+            }
+
+            .adai-info-body {
+                padding: 15px;
+            }
+
+            .adai-preview-body {
+                padding: 15px;
             }
         }
     </style>
@@ -2074,6 +2520,21 @@
 
                     <button
                         class="nav-button"
+                        data-page="adai"
+                        onclick="showPage('adai')"
+                    >
+                        <span class="nav-mark">
+                            AD
+                        </span>
+
+                        <span>
+                            ADAI
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="nav-button"
                         data-page="chats"
                         onclick="showPage('chats')"
                     >
@@ -2163,6 +2624,14 @@
 
                         <button
                             class="small-button"
+                            onclick="showPage('adai')"
+                        >
+                            ADAI
+                        </button>
+
+
+                        <button
+                            class="small-button"
                             onclick="openShortcutModal()"
                         >
                             Nuevo acceso
@@ -2219,6 +2688,14 @@
 
                             <button
                                 class="small-button"
+                                onclick="showPage('adai')"
+                            >
+                                Abrir ADAI
+                            </button>
+
+
+                            <button
+                                class="small-button"
                                 onclick="showPage('chats')"
                             >
                                 Abrir chats
@@ -2269,6 +2746,24 @@
                             <p>
                                 Habla con la inteligencia artificial
                                 integrada en HYISX.
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="dashboard-card"
+                            onclick="showPage('adai')"
+                        >
+
+                            <h2>
+                                ADAI
+                            </h2>
+
+                            <p>
+                                Revisa archivos sin ejecutarlos,
+                                muestra una vista y analiza
+                                indicadores de seguridad.
                             </p>
 
                         </div>
@@ -2484,13 +2979,13 @@
 
                         <div class="ia-toolbar">
 
-                            <div class="ia-toolbar-title">
+                            <div class="ia-toolbar-left">
 
                                 <div class="nav-mark">
                                     IA
                                 </div>
 
-                                <div>
+                                <div class="ia-toolbar-title">
 
                                     <strong>
                                         IA
@@ -2574,6 +3069,250 @@
                                     id="iaStatus"
                                     class="ia-status"
                                 ></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ADAI
+                ================================================= -->
+
+                <section
+                    id="page-adai"
+                    class="page hidden"
+                >
+
+                    <div class="adai-page">
+
+                        <div class="adai-toolbar">
+
+                            <div class="adai-toolbar-left">
+
+                                <div class="nav-mark">
+                                    AD
+                                </div>
+
+                                <div>
+
+                                    <div class="adai-toolbar-title">
+                                        ADAI
+                                    </div>
+
+                                    <div class="adai-toolbar-subtitle">
+                                        Inspector seguro de archivos
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                class="adai-select-button"
+                                onclick="document.getElementById('adaiFileInput').click()"
+                            >
+                                Seleccionar archivo
+                            </button>
+
+
+                            <input
+                                id="adaiFileInput"
+                                class="adai-file-input"
+                                type="file"
+                            >
+
+                        </div>
+
+
+                        <div class="adai-main">
+
+
+                            <div class="adai-preview">
+
+                                <div class="adai-panel-header">
+
+                                    <span>
+                                        Vista / emulador
+                                    </span>
+
+                                    <span
+                                        id="adaiPreviewType"
+                                    >
+                                        Sin archivo
+                                    </span>
+
+                                </div>
+
+
+                                <div
+                                    id="adaiPreviewBody"
+                                    class="adai-preview-body"
+                                >
+
+                                    <div class="adai-empty">
+
+                                        <h1>
+                                            ADAI
+                                        </h1>
+
+                                        <p>
+                                            Selecciona un archivo para
+                                            revisarlo sin ejecutarlo.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="adai-info">
+
+                                <div class="adai-panel-header">
+
+                                    <span>
+                                        Información
+                                    </span>
+
+                                    <span>
+                                        REVISIÓN LOCAL
+                                    </span>
+
+                                </div>
+
+
+                                <div class="adai-info-body">
+
+                                    <div
+                                        id="adaiFileName"
+                                        class="adai-file-name"
+                                    >
+                                        Ningún archivo seleccionado
+                                    </div>
+
+
+                                    <div class="adai-detail">
+
+                                        <span>
+                                            Tipo
+                                        </span>
+
+                                        <span id="adaiFileType">
+                                            —
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="adai-detail">
+
+                                        <span>
+                                            Tamaño
+                                        </span>
+
+                                        <span id="adaiFileSize">
+                                            —
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="adai-detail">
+
+                                        <span>
+                                            Extensión
+                                        </span>
+
+                                        <span id="adaiFileExtension">
+                                            —
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="adai-detail">
+
+                                        <span>
+                                            SHA-256
+                                        </span>
+
+                                        <span id="adaiFileHash">
+                                            —
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="adai-detail">
+
+                                        <span>
+                                            Modificado
+                                        </span>
+
+                                        <span id="adaiFileDate">
+                                            —
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="adai-result-box">
+
+                                        <div class="adai-result-title">
+                                            Resultado
+                                        </div>
+
+
+                                        <div
+                                            id="adaiResult"
+                                            class="adai-result unknown"
+                                        >
+                                            SIN ARCHIVO
+                                        </div>
+
+
+                                        <div
+                                            id="adaiResultReason"
+                                            class="adai-result-reason"
+                                        >
+                                            Selecciona un archivo para
+                                            comenzar la revisión.
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="adai-note">
+
+                                        El archivo se revisa localmente.
+                                        ADAI nunca lo ejecuta y no lo
+                                        envía a la IA de HYISX.
+                                        Un resultado heurístico no
+                                        sustituye a un antivirus o
+                                        sandbox profesional.
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="adai-actions">
+
+                                    <button
+                                        class="small-button"
+                                        onclick="clearADAI()"
+                                    >
+                                        Limpiar
+                                    </button>
+
+                                </div>
 
                             </div>
 
@@ -3207,6 +3946,15 @@
 
 
         /* =====================================================
+           ADAI STATE
+        ===================================================== */
+
+        let adaiCurrentFile = null;
+
+        let adaiCurrentObjectUrl = null;
+
+
+        /* =====================================================
            HELPERS
         ===================================================== */
 
@@ -3719,6 +4467,8 @@
 
             ia: "IA",
 
+            adai: "ADAI",
+
             chats: "Chats",
 
             folders: "Carpetas"
@@ -3808,6 +4558,16 @@
                         },
                         0
                     );
+
+                }
+
+
+                if (
+                    page ===
+                    "adai"
+                ) {
+
+                    updateADAIEmptyState();
 
                 }
 
@@ -4858,6 +5618,1453 @@
                         "iaInput"
                     )
                     .focus();
+
+            };
+
+
+        /* =====================================================
+           ADAI
+        ===================================================== */
+
+        const adaiInput =
+            document.getElementById(
+                "adaiFileInput"
+            );
+
+
+        adaiInput.addEventListener(
+            "change",
+            event => {
+
+                const file =
+                    event.target.files[0];
+
+                if (!file) {
+                    return;
+                }
+
+                reviewADAI(
+                    file
+                );
+
+            }
+        );
+
+
+        function updateADAIEmptyState() {
+
+            if (
+                !adaiCurrentFile
+            ) {
+
+                const preview =
+                    document.getElementById(
+                        "adaiPreviewBody"
+                    );
+
+
+                preview.innerHTML = `
+
+                    <div class="adai-empty">
+
+                        <h1>
+                            ADAI
+                        </h1>
+
+                        <p>
+                            Selecciona un archivo para
+                            revisarlo sin ejecutarlo.
+                        </p>
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+        function formatADAISize(
+            bytes
+        ) {
+
+            if (
+                bytes <
+                1024
+            ) {
+
+                return `${bytes} B`;
+
+            }
+
+
+            if (
+                bytes <
+                1024 * 1024
+            ) {
+
+                return `${(
+                    bytes /
+                    1024
+                ).toFixed(2)} KB`;
+
+            }
+
+
+            if (
+                bytes <
+                1024 * 1024 * 1024
+            ) {
+
+                return `${(
+                    bytes /
+                    (1024 * 1024)
+                ).toFixed(2)} MB`;
+
+            }
+
+
+            return `${(
+                bytes /
+                (1024 * 1024 * 1024)
+            ).toFixed(2)} GB`;
+
+        }
+
+
+        function getADAIExtension(
+            name
+        ) {
+
+            const index =
+                name.lastIndexOf(
+                    "."
+                );
+
+
+            if (
+                index ===
+                    -1 ||
+                index ===
+                    name.length - 1
+            ) {
+
+                return "";
+
+            }
+
+
+            return name
+                .slice(
+                    index + 1
+                )
+                .toLowerCase();
+
+        }
+
+
+        function getADAITextExtensions() {
+
+            return new Set([
+
+                "txt",
+                "md",
+                "markdown",
+                "json",
+                "csv",
+                "html",
+                "htm",
+                "css",
+                "js",
+                "jsx",
+                "ts",
+                "tsx",
+                "xml",
+                "log",
+                "yaml",
+                "yml",
+                "ini",
+                "conf",
+                "config",
+                "sql",
+                "sh",
+                "bash",
+                "bat",
+                "cmd",
+                "ps1",
+                "vbs",
+                "c",
+                "h",
+                "cpp",
+                "hpp",
+                "java",
+                "py",
+                "php",
+                "rb",
+                "go",
+                "rs"
+
+            ]);
+
+        }
+
+
+        function getADAIImageExtensions() {
+
+            return new Set([
+
+                "png",
+                "jpg",
+                "jpeg",
+                "webp",
+                "gif",
+                "bmp",
+                "svg"
+
+            ]);
+
+        }
+
+
+        function getADAISafePreviewExtensions() {
+
+            return new Set([
+
+                "html",
+                "htm"
+
+            ]);
+
+        }
+
+
+        function detectADAIRisk(
+            file,
+            extension,
+            text
+        ) {
+
+            const indicators = [];
+
+
+            const lowerName =
+                file.name.toLowerCase();
+
+
+            const executableExtensions =
+                new Set([
+
+                    "exe",
+                    "dll",
+                    "sys",
+                    "scr",
+                    "msi",
+                    "com",
+                    "cpl",
+                    "ocx",
+                    "drv",
+                    "jar",
+                    "apk",
+                    "appimage",
+                    "deb",
+                    "rpm"
+
+                ]);
+
+
+            const scriptExtensions =
+                new Set([
+
+                    "bat",
+                    "cmd",
+                    "ps1",
+                    "vbs",
+                    "sh",
+                    "bash",
+                    "js",
+                    "jse",
+                    "wsf",
+                    "hta"
+
+                ]);
+
+
+            if (
+                executableExtensions.has(
+                    extension
+                )
+            ) {
+
+                indicators.push(
+                    "El archivo es un formato ejecutable o de biblioteca."
+                );
+
+            }
+
+
+            if (
+                scriptExtensions.has(
+                    extension
+                )
+            ) {
+
+                indicators.push(
+                    "El archivo es un script que puede contener instrucciones ejecutables."
+                );
+
+            }
+
+
+            if (
+                /\beval\s*\(/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "Contiene uso de eval(), un patrón que puede aparecer en código ofuscado."
+                );
+
+            }
+
+
+            if (
+                /powershell.{0,100}(?:-enc|-encodedcommand)/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "Se detectó PowerShell con contenido codificado."
+                );
+
+            }
+
+
+            if (
+                /(?:invoke-webrequest|\biwr\b).{0,150}(?:https?:\/\/)/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "Se detectó un patrón de descarga mediante PowerShell."
+                );
+
+            }
+
+
+            if (
+                /certutil.{0,100}-decode/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "Se detectó un patrón de decodificación mediante certutil."
+                );
+
+            }
+
+
+            if (
+                /bitsadmin.{0,150}(?:http|https)/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "Se detectó BITSAdmin asociado con una URL."
+                );
+
+            }
+
+
+            if (
+                /(?:rundll32|regsvr32|mshta)\b/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "Se detectó una herramienta del sistema frecuentemente utilizada para ejecutar contenido."
+                );
+
+            }
+
+
+            if (
+                /\bcmd(?:\.exe)?\s*\/c\b/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "Se detectó ejecución de comandos mediante CMD."
+                );
+
+            }
+
+
+            if (
+                /createobject\s*\(\s*["']wscript\.shell/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "Se detectó acceso al shell de Windows desde un script."
+                );
+
+            }
+
+
+            if (
+                /(?:curl|wget).{0,150}\|\s*(?:sh|bash)\b/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "Se detectó descarga y ejecución directa mediante shell."
+                );
+
+            }
+
+
+            if (
+                /<script\b/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "El archivo contiene código JavaScript."
+                );
+
+            }
+
+
+            if (
+                /<iframe\b/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "El archivo contiene un iframe."
+                );
+
+            }
+
+
+            if (
+                /(?:document\.cookie|localStorage|sessionStorage)/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "Se detectó acceso a almacenamiento o cookies del navegador."
+                );
+
+            }
+
+
+            if (
+                /(?:atob|fromCharCode|unescape)\s*\(/i.test(
+                    text
+                )
+            ) {
+
+                indicators.push(
+                    "Se detectó un patrón que puede utilizarse para ocultar contenido."
+                );
+
+            }
+
+
+            if (
+                lowerName.includes(
+                    ".exe."
+                ) ||
+                lowerName.includes(
+                    ".scr."
+                ) ||
+                lowerName.includes(
+                    ".js."
+                )
+            ) {
+
+                indicators.push(
+                    "El nombre del archivo contiene una extensión potencialmente engañosa."
+                );
+
+            }
+
+
+            return indicators;
+
+        }
+
+
+        async function getADAISha256(
+            file
+        ) {
+
+            const buffer =
+                await file.arrayBuffer();
+
+
+            const digest =
+                await crypto.subtle.digest(
+                    "SHA-256",
+                    buffer
+                );
+
+
+            return Array
+                .from(
+                    new Uint8Array(
+                        digest
+                    )
+                )
+                .map(
+                    byte =>
+                        byte
+                            .toString(16)
+                            .padStart(
+                                2,
+                                "0"
+                            )
+                )
+                .join("");
+
+        }
+
+
+        function classifyADAI(
+            file,
+            extension,
+            indicators,
+            text
+        ) {
+
+            /*
+             * EICAR es una cadena estándar de prueba.
+             * No se ejecuta el archivo.
+             */
+
+            if (
+                text &&
+                text.includes(
+                    "EICAR-STANDARD-ANTIVIRUS-TEST-FILE"
+                )
+            ) {
+
+                return {
+
+                    status:
+                        "VIRUS",
+
+                    reason:
+                        "Se encontró la firma de prueba EICAR. " +
+                        "Es una cadena estándar utilizada para probar antivirus; " +
+                        "no se ejecutó el archivo."
+
+                };
+
+            }
+
+
+            const executable =
+                new Set([
+
+                    "exe",
+                    "dll",
+                    "sys",
+                    "scr",
+                    "msi",
+                    "com",
+                    "cpl",
+                    "ocx",
+                    "drv"
+
+                ]).has(
+                    extension
+                );
+
+
+            if (
+                indicators.length >= 4
+            ) {
+
+                return {
+
+                    status:
+                        "MALWARE",
+
+                    reason:
+                        "Se encontraron varios indicadores " +
+                        "potencialmente maliciosos. " +
+                        "Esta clasificación es heurística y no constituye " +
+                        "una confirmación de malware."
+
+                };
+
+            }
+
+
+            if (
+                indicators.length > 0 ||
+                executable
+            ) {
+
+                return {
+
+                    status:
+                        "SOSPECHOSO",
+
+                    reason:
+                        executable
+                            ? "Es un archivo ejecutable. ADAI no lo ejecutó y no puede determinar su comportamiento real solamente mediante una revisión local."
+                            : "Se encontraron uno o más indicadores que requieren revisión. " +
+                              "La clasificación es heurística."
+
+                };
+
+            }
+
+
+            if (
+                text &&
+                text.trim()
+            ) {
+
+                return {
+
+                    status:
+                        "SEGURO",
+
+                    reason:
+                        "No se encontraron indicadores sospechosos conocidos " +
+                        "en la revisión local. Esto no garantiza que el archivo " +
+                        "sea completamente seguro."
+
+                };
+
+            }
+
+
+            return {
+
+                status:
+                    "NO CONCLUYENTE",
+
+                reason:
+                    "ADAI pudo obtener información básica del archivo, " +
+                    "pero no hay suficiente contenido que pueda analizar localmente."
+
+            };
+
+        }
+
+
+        function setADAIResult(
+            status,
+            reason
+        ) {
+
+            const resultElement =
+                document.getElementById(
+                    "adaiResult"
+                );
+
+
+            const reasonElement =
+                document.getElementById(
+                    "adaiResultReason"
+                );
+
+
+            resultElement.className =
+                "adai-result";
+
+
+            switch (
+                status
+            ) {
+
+                case "SEGURO":
+
+                    resultElement.classList.add(
+                        "safe"
+                    );
+
+                    break;
+
+
+                case "SOSPECHOSO":
+
+                    resultElement.classList.add(
+                        "suspicious"
+                    );
+
+                    break;
+
+
+                case "VIRUS":
+
+                    resultElement.classList.add(
+                        "virus"
+                    );
+
+                    break;
+
+
+                case "MALWARE":
+
+                    resultElement.classList.add(
+                        "malware"
+                    );
+
+                    break;
+
+
+                default:
+
+                    resultElement.classList.add(
+                        "unknown"
+                    );
+
+            }
+
+
+            resultElement.textContent =
+                status;
+
+
+            reasonElement.textContent =
+                reason;
+
+        }
+
+
+        function clearADAIObjectUrl() {
+
+            if (
+                adaiCurrentObjectUrl
+            ) {
+
+                URL.revokeObjectURL(
+                    adaiCurrentObjectUrl
+                );
+
+                adaiCurrentObjectUrl =
+                    null;
+
+            }
+
+        }
+
+
+        function resetADAIInformation() {
+
+            document
+                .getElementById(
+                    "adaiFileName"
+                )
+                .textContent =
+                    "Ningún archivo seleccionado";
+
+
+            document
+                .getElementById(
+                    "adaiFileType"
+                )
+                .textContent =
+                    "—";
+
+
+            document
+                .getElementById(
+                    "adaiFileSize"
+                )
+                .textContent =
+                    "—";
+
+
+            document
+                .getElementById(
+                    "adaiFileExtension"
+                )
+                .textContent =
+                    "—";
+
+
+            document
+                .getElementById(
+                    "adaiFileHash"
+                )
+                .textContent =
+                    "—";
+
+
+            document
+                .getElementById(
+                    "adaiFileDate"
+                )
+                .textContent =
+                    "—";
+
+
+            document
+                .getElementById(
+                    "adaiPreviewType"
+                )
+                .textContent =
+                    "Sin archivo";
+
+
+            setADAIResult(
+                "NO CONCLUYENTE",
+                "Selecciona un archivo para comenzar la revisión."
+            );
+
+        }
+
+
+        async function showADAIPreview(
+            file,
+            extension,
+            text
+        ) {
+
+            const preview =
+                document.getElementById(
+                    "adaiPreviewBody"
+                );
+
+
+            const previewType =
+                document.getElementById(
+                    "adaiPreviewType"
+                );
+
+
+            clearADAIObjectUrl();
+
+
+            preview.innerHTML =
+                "";
+
+
+            previewType.textContent =
+                extension
+                    ? extension.toUpperCase()
+                    : "ARCHIVO";
+
+
+            const imageExtensions =
+                getADAIImageExtensions();
+
+
+            const textExtensions =
+                getADAITextExtensions();
+
+
+            if (
+                imageExtensions.has(
+                    extension
+                )
+            ) {
+
+                const image =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                image.className =
+                    "adai-preview-image";
+
+
+                image.alt =
+                    file.name;
+
+
+                adaiCurrentObjectUrl =
+                    URL.createObjectURL(
+                        file
+                    );
+
+
+                image.src =
+                    adaiCurrentObjectUrl;
+
+
+                preview.appendChild(
+                    image
+                );
+
+
+                return;
+
+            }
+
+
+            if (
+                getADAISafePreviewExtensions()
+                    .has(
+                        extension
+                    )
+            ) {
+
+                /*
+                 * HTML se visualiza en un iframe sandbox.
+                 * Se eliminan scripts, iframes, objetos y eventos
+                 * antes de mostrarlo. NO se ejecuta JavaScript del archivo.
+                 */
+
+                const parser =
+                    new DOMParser();
+
+
+                const documentFragment =
+                    parser.parseFromString(
+                        text,
+                        "text/html"
+                    );
+
+
+                documentFragment
+                    .querySelectorAll(
+                        "script,iframe,object,embed,form,meta,link"
+                    )
+                    .forEach(
+                        node =>
+                            node.remove()
+                    );
+
+
+                documentFragment
+                    .querySelectorAll(
+                        "*"
+                    )
+                    .forEach(
+                        element => {
+
+                            Array
+                                .from(
+                                    element.attributes
+                                )
+                                .forEach(
+                                    attribute => {
+
+                                        if (
+                                            attribute.name
+                                                .toLowerCase()
+                                                .startsWith(
+                                                    "on"
+                                                )
+                                        ) {
+
+                                            element.removeAttribute(
+                                                attribute.name
+                                            );
+
+                                        }
+
+                                    }
+                                );
+
+
+                            [
+                                "src",
+                                "href",
+                                "action"
+                            ].forEach(
+                                name => {
+
+                                    if (
+                                        element.hasAttribute(
+                                            name
+                                        )
+                                    ) {
+
+                                        const value =
+                                            element.getAttribute(
+                                                name
+                                            );
+
+
+                                        if (
+                                            value &&
+                                            !value.startsWith(
+                                                "data:"
+                                            ) &&
+                                            !value.startsWith(
+                                                "#"
+                                            )
+                                        ) {
+
+                                            element.removeAttribute(
+                                                name
+                                            );
+
+                                        }
+
+                                    }
+
+                                }
+                            );
+
+                        }
+                    );
+
+
+                const iframe =
+                    document.createElement(
+                        "iframe"
+                    );
+
+
+                iframe.className =
+                    "adai-preview-frame";
+
+
+                iframe.title =
+                    "Vista segura del archivo HTML";
+
+
+                iframe.setAttribute(
+                    "sandbox",
+                    ""
+                );
+
+
+                iframe.srcdoc =
+                    documentFragment.documentElement
+                        .outerHTML;
+
+
+                preview.appendChild(
+                    iframe
+                );
+
+
+                return;
+
+            }
+
+
+            if (
+                textExtensions.has(
+                    extension
+                )
+            ) {
+
+                const textElement =
+                    document.createElement(
+                        "pre"
+                    );
+
+
+                textElement.className =
+                    "adai-preview-text";
+
+
+                textElement.textContent =
+                    text ||
+                    "(El archivo no contiene texto legible.)";
+
+
+                preview.appendChild(
+                    textElement
+                );
+
+
+                return;
+
+            }
+
+
+            if (
+                extension ===
+                "pdf"
+            ) {
+
+                adaiCurrentObjectUrl =
+                    URL.createObjectURL(
+                        file
+                    );
+
+
+                const frame =
+                    document.createElement(
+                        "iframe"
+                    );
+
+
+                frame.className =
+                    "adai-preview-frame";
+
+
+                frame.title =
+                    "Vista PDF";
+
+
+                frame.src =
+                    adaiCurrentObjectUrl;
+
+
+                preview.appendChild(
+                    frame
+                );
+
+
+                return;
+
+            }
+
+
+            const generic =
+                document.createElement(
+                    "div"
+                );
+
+
+            generic.className =
+                "adai-preview-generic";
+
+
+            const strong =
+                document.createElement(
+                    "strong"
+                );
+
+
+            strong.textContent =
+                extension
+                    ? `Archivo .${extension}`
+                    : "Archivo";
+
+
+            const span =
+                document.createElement(
+                    "span"
+                );
+
+
+            span.textContent =
+                "Este formato no se puede representar directamente en el navegador. " +
+                "ADAI puede seguir mostrando su información y realizar la revisión local disponible.";
+
+
+            generic.appendChild(
+                strong
+            );
+
+
+            generic.appendChild(
+                span
+            );
+
+
+            preview.appendChild(
+                generic
+            );
+
+        }
+
+
+        async function reviewADAI(
+            file
+        ) {
+
+            if (!file) {
+                return;
+            }
+
+
+            adaiCurrentFile =
+                file;
+
+
+            const nameElement =
+                document.getElementById(
+                    "adaiFileName"
+                );
+
+
+            const typeElement =
+                document.getElementById(
+                    "adaiFileType"
+                );
+
+
+            const sizeElement =
+                document.getElementById(
+                    "adaiFileSize"
+                );
+
+
+            const extensionElement =
+                document.getElementById(
+                    "adaiFileExtension"
+                );
+
+
+            const hashElement =
+                document.getElementById(
+                    "adaiFileHash"
+                );
+
+
+            const dateElement =
+                document.getElementById(
+                    "adaiFileDate"
+                );
+
+
+            nameElement.textContent =
+                file.name;
+
+
+            typeElement.textContent =
+                file.type ||
+                "Desconocido";
+
+
+            sizeElement.textContent =
+                formatADAISize(
+                    file.size
+                );
+
+
+            const extension =
+                getADAIExtension(
+                    file.name
+                );
+
+
+            extensionElement.textContent =
+                extension
+                    ? `.${extension}`
+                    : "Sin extensión";
+
+
+            dateElement.textContent =
+                file.lastModified
+                    ? new Date(
+                        file.lastModified
+                    ).toLocaleString()
+                    : "—";
+
+
+            hashElement.textContent =
+                "Calculando...";
+
+
+            setADAIResult(
+                "NO CONCLUYENTE",
+                "Revisando archivo..."
+            );
+
+
+            let text =
+                "";
+
+
+            const textExtensions =
+                getADAITextExtensions();
+
+
+            const canReadText =
+                textExtensions.has(
+                    extension
+                ) &&
+                file.size <=
+                    10 * 1024 * 1024;
+
+
+            if (
+                canReadText
+            ) {
+
+                try {
+
+                    text =
+                        await file.text();
+
+                } catch (error) {
+
+                    console.error(
+                        error
+                    );
+
+                }
+
+            }
+
+
+            /*
+             * Los archivos HTML se leen como texto para generar
+             * una vista segura sin ejecutar scripts.
+             */
+
+            if (
+                extension ===
+                    "html" ||
+                extension ===
+                    "htm"
+            ) {
+
+                if (
+                    file.size <=
+                        10 * 1024 * 1024
+                ) {
+
+                    try {
+
+                        text =
+                            await file.text();
+
+                    } catch (error) {
+
+                        console.error(
+                            error
+                        );
+
+                    }
+
+                }
+
+            }
+
+
+            const indicators =
+                detectADAIRisk(
+                    file,
+                    extension,
+                    text
+                );
+
+
+            try {
+
+                const hash =
+                    await getADAISha256(
+                        file
+                    );
+
+
+                hashElement.textContent =
+                    hash;
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+
+
+                hashElement.textContent =
+                    "No disponible";
+
+            }
+
+
+            await showADAIPreview(
+                file,
+                extension,
+                text
+            );
+
+
+            const classification =
+                classifyADAI(
+                    file,
+                    extension,
+                    indicators,
+                    text
+                );
+
+
+            let reason =
+                classification.reason;
+
+
+            if (
+                indicators.length > 0
+            ) {
+
+                reason +=
+                    "\n\nIndicadores encontrados:\n" +
+                    indicators
+                        .map(
+                            item =>
+                                `• ${item}`
+                        )
+                        .join(
+                            "\n"
+                        );
+
+            }
+
+
+            setADAIResult(
+                classification.status,
+                reason
+            );
+
+        }
+
+
+        window.clearADAI =
+            function () {
+
+                clearADAIObjectUrl();
+
+
+                adaiCurrentFile =
+                    null;
+
+
+                const input =
+                    document.getElementById(
+                        "adaiFileInput"
+                    );
+
+
+                input.value =
+                    "";
+
+
+                document
+                    .getElementById(
+                        "adaiPreviewBody"
+                    )
+                    .innerHTML = `
+
+                        <div class="adai-empty">
+
+                            <h1>
+                                ADAI
+                            </h1>
+
+                            <p>
+                                Selecciona un archivo para
+                                revisarlo sin ejecutarlo.
+                            </p>
+
+                        </div>
+
+                    `;
+
+
+                resetADAIInformation();
 
             };
 
@@ -6926,8 +9133,11 @@
 
         renderIA();
 
+        resetADAIInformation();
+
     </script>
 
 </body>
 </html>
+
 
