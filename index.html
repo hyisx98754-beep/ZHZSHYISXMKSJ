@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -911,6 +912,290 @@
         }
 
         /* =====================================================
+           IA
+        ===================================================== */
+
+        .ia-page {
+            width: 100%;
+
+            min-height: calc(100vh - var(--topbar));
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .ia-toolbar {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            padding: 18px 24px;
+
+            background: #0b0e12;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .ia-toolbar-title {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .ia-toolbar-title strong {
+            font-size: 15px;
+        }
+
+        .ia-toolbar-title span {
+            color: var(--muted);
+
+            font-size: 11px;
+        }
+
+        .ia-delete-button {
+            padding: 9px 13px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            background: var(--panel);
+
+            color: var(--text2);
+
+            transition: .18s;
+        }
+
+        .ia-delete-button:hover {
+            background: var(--danger-dark);
+
+            border-color: var(--danger-dark);
+
+            color: white;
+        }
+
+        .ia-main {
+            flex: 1;
+
+            display: flex;
+
+            flex-direction: column;
+
+            min-height: 650px;
+
+            background: #050608;
+        }
+
+        .ia-messages {
+            flex: 1;
+
+            overflow-y: auto;
+
+            padding: 28px;
+
+            scroll-behavior: smooth;
+        }
+
+        .ia-empty {
+            min-height: 560px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            color: var(--muted);
+        }
+
+        .ia-empty-content {
+            max-width: 620px;
+        }
+
+        .ia-empty-content h1 {
+            margin-bottom: 12px;
+
+            font-size: 40px;
+
+            letter-spacing: 4px;
+        }
+
+        .ia-empty-content p {
+            color: var(--text2);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .ia-message-row {
+            width: 100%;
+
+            display: flex;
+
+            margin-bottom: 15px;
+        }
+
+        .ia-message-row.user {
+            justify-content: flex-end;
+        }
+
+        .ia-message {
+            width: min(820px, 88%);
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .ia-message-row.user .ia-message {
+            align-items: flex-end;
+        }
+
+        .ia-message-label {
+            margin-bottom: 6px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+
+            font-weight: 700;
+        }
+
+        .ia-message-bubble {
+            width: fit-content;
+
+            max-width: 100%;
+
+            padding: 12px 14px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            background: var(--panel);
+
+            color: var(--text);
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            white-space: pre-wrap;
+
+            word-break: break-word;
+        }
+
+        .ia-message-row.user .ia-message-bubble {
+            background: #181e25;
+        }
+
+        .ia-composer {
+            padding: 13px 18px;
+
+            border-top: 1px solid var(--border);
+
+            background: #0b0e12;
+        }
+
+        .ia-composer-row {
+            display: flex;
+
+            align-items: flex-end;
+
+            gap: 8px;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+        }
+
+        #iaInput {
+            flex: 1;
+
+            min-height: 46px;
+
+            max-height: 180px;
+
+            resize: vertical;
+
+            padding: 12px 13px;
+
+            background: #080b0f;
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            color: var(--text);
+
+            outline: none;
+
+            line-height: 1.5;
+        }
+
+        #iaInput:focus {
+            border-color: var(--border2);
+        }
+
+        #iaInput:disabled {
+            opacity: .65;
+
+            cursor: not-allowed;
+        }
+
+        .ia-send {
+            height: 46px;
+
+            padding: 0 18px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: white;
+
+            color: black;
+
+            font-weight: 850;
+
+            transition: .18s;
+        }
+
+        .ia-send:hover {
+            opacity: .92;
+        }
+
+        .ia-send:disabled {
+            opacity: .55;
+
+            cursor: not-allowed;
+        }
+
+        .ia-status {
+            min-height: 18px;
+
+            max-width: 1200px;
+
+            margin: 7px auto 0;
+
+            padding: 0 2px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+        }
+
+        /* =====================================================
            CHATS
         ===================================================== */
 
@@ -1582,6 +1867,32 @@
             .topbar {
                 padding: 0 15px;
             }
+
+            .ia-toolbar {
+                flex-wrap: wrap;
+            }
+
+            .ia-messages {
+                padding: 18px 15px;
+            }
+
+            .ia-message {
+                width: 94%;
+            }
+
+            .ia-composer-row {
+                flex-wrap: wrap;
+            }
+
+            #iaInput {
+                width: 100%;
+
+                flex-basis: 100%;
+            }
+
+            .ia-send {
+                width: 100%;
+            }
         }
 
         @media (max-width: 520px) {
@@ -1748,6 +2059,21 @@
 
                     <button
                         class="nav-button"
+                        data-page="ia"
+                        onclick="showPage('ia')"
+                    >
+                        <span class="nav-mark">
+                            IA
+                        </span>
+
+                        <span>
+                            IA
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="nav-button"
                         data-page="chats"
                         onclick="showPage('chats')"
                     >
@@ -1829,6 +2155,14 @@
 
                         <button
                             class="small-button"
+                            onclick="showPage('ia')"
+                        >
+                            IA
+                        </button>
+
+
+                        <button
+                            class="small-button"
                             onclick="openShortcutModal()"
                         >
                             Nuevo acceso
@@ -1877,6 +2211,14 @@
 
                             <button
                                 class="small-button"
+                                onclick="showPage('ia')"
+                            >
+                                Abrir IA
+                            </button>
+
+
+                            <button
+                                class="small-button"
                                 onclick="showPage('chats')"
                             >
                                 Abrir chats
@@ -1897,6 +2239,7 @@
 
                     <div class="dashboard">
 
+
                         <div
                             class="dashboard-card"
                             onclick="showPage('bam')"
@@ -1908,6 +2251,23 @@
 
                             <p>
                                 Herramienta de búsqueda y navegación
+                                integrada en HYISX.
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="dashboard-card"
+                            onclick="showPage('ia')"
+                        >
+
+                            <h2>
+                                IA
+                            </h2>
+
+                            <p>
+                                Habla con la inteligencia artificial
                                 integrada en HYISX.
                             </p>
 
@@ -2103,6 +2463,119 @@
                                 title="BAM"
                                 referrerpolicy="no-referrer"
                             ></iframe>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     IA
+                ================================================= -->
+
+                <section
+                    id="page-ia"
+                    class="page hidden"
+                >
+
+                    <div class="ia-page">
+
+                        <div class="ia-toolbar">
+
+                            <div class="ia-toolbar-title">
+
+                                <div class="nav-mark">
+                                    IA
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        IA
+                                    </strong>
+
+                                    <span>
+                                        Conversación
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                class="ia-delete-button"
+                                onclick="deleteIAConversation()"
+                            >
+                                Eliminar conversación
+                            </button>
+
+                        </div>
+
+
+                        <div class="ia-main">
+
+                            <div
+                                id="iaMessages"
+                                class="ia-messages"
+                            >
+
+                                <div
+                                    id="iaEmpty"
+                                    class="ia-empty"
+                                >
+
+                                    <div
+                                        class="ia-empty-content"
+                                    >
+
+                                        <h1>
+                                            IA
+                                        </h1>
+
+                                        <p>
+                                            Habla con la inteligencia
+                                            artificial de HYISX.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="ia-composer">
+
+                                <div class="ia-composer-row">
+
+                                    <textarea
+                                        id="iaInput"
+                                        maxlength="4000"
+                                        placeholder="Escribe un mensaje..."
+                                        rows="1"
+                                    ></textarea>
+
+
+                                    <button
+                                        id="iaSendButton"
+                                        class="ia-send"
+                                        onclick="sendIA()"
+                                    >
+                                        Enviar
+                                    </button>
+
+                                </div>
+
+
+                                <div
+                                    id="iaStatus"
+                                    class="ia-status"
+                                ></div>
+
+                            </div>
 
                         </div>
 
@@ -2721,6 +3194,19 @@
 
 
         /* =====================================================
+           IA STATE
+        ===================================================== */
+
+        const IA_URL =
+            "https://hyisx-ia.hyisx98754.workers.dev/";
+
+
+        let iaHistory = [];
+
+        let iaSending = false;
+
+
+        /* =====================================================
            HELPERS
         ===================================================== */
 
@@ -3231,6 +3717,8 @@
 
             bam: "BAM",
 
+            ia: "IA",
+
             chats: "Chats",
 
             folders: "Carpetas"
@@ -3299,6 +3787,29 @@
                     .textContent =
                         titles[page] ||
                         "Inicio";
+
+
+                if (
+                    page ===
+                    "ia"
+                ) {
+
+                    renderIA();
+
+                    setTimeout(
+                        () => {
+
+                            document
+                                .getElementById(
+                                    "iaInput"
+                                )
+                                .focus();
+
+                        },
+                        0
+                    );
+
+                }
 
             };
 
@@ -3948,6 +4459,405 @@
                     );
 
                 }
+
+            };
+
+
+        /* =====================================================
+           IA
+        ===================================================== */
+
+        function renderIA() {
+
+            const container =
+                document.getElementById(
+                    "iaMessages"
+                );
+
+
+            container.innerHTML =
+                "";
+
+
+            if (
+                iaHistory.length ===
+                0
+            ) {
+
+                const empty =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                empty.id =
+                    "iaEmpty";
+
+
+                empty.className =
+                    "ia-empty";
+
+
+                const content =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                content.className =
+                    "ia-empty-content";
+
+
+                const title =
+                    document.createElement(
+                        "h1"
+                    );
+
+
+                title.textContent =
+                    "IA";
+
+
+                const description =
+                    document.createElement(
+                        "p"
+                    );
+
+
+                description.textContent =
+                    "Habla con la inteligencia artificial de HYISX.";
+
+
+                content.appendChild(
+                    title
+                );
+
+
+                content.appendChild(
+                    description
+                );
+
+
+                empty.appendChild(
+                    content
+                );
+
+
+                container.appendChild(
+                    empty
+                );
+
+
+                return;
+
+            }
+
+
+            iaHistory.forEach(
+                message => {
+
+                    const row =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    row.className =
+                        "ia-message-row " +
+                        (
+                            message.role ===
+                            "user"
+                                ? "user"
+                                : "assistant"
+                        );
+
+
+                    const wrapper =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    wrapper.className =
+                        "ia-message";
+
+
+                    const label =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    label.className =
+                        "ia-message-label";
+
+
+                    label.textContent =
+                        message.role ===
+                        "user"
+                            ? "Tú"
+                            : "IA";
+
+
+                    const bubble =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    bubble.className =
+                        "ia-message-bubble";
+
+
+                    bubble.textContent =
+                        message.content;
+
+
+                    wrapper.appendChild(
+                        label
+                    );
+
+
+                    wrapper.appendChild(
+                        bubble
+                    );
+
+
+                    row.appendChild(
+                        wrapper
+                    );
+
+
+                    container.appendChild(
+                        row
+                    );
+
+                }
+            );
+
+
+            container.scrollTop =
+                container.scrollHeight;
+
+        }
+
+
+        async function sendIA() {
+
+            if (
+                iaSending
+            ) {
+
+                return;
+
+            }
+
+
+            const input =
+                document.getElementById(
+                    "iaInput"
+                );
+
+
+            const sendButton =
+                document.getElementById(
+                    "iaSendButton"
+                );
+
+
+            const status =
+                document.getElementById(
+                    "iaStatus"
+                );
+
+
+            const message =
+                input.value.trim();
+
+
+            if (!message) {
+
+                return;
+
+            }
+
+
+            iaSending =
+                true;
+
+
+            input.disabled =
+                true;
+
+
+            sendButton.disabled =
+                true;
+
+
+            iaHistory.push({
+
+                role:
+                    "user",
+
+                content:
+                    message
+
+            });
+
+
+            input.value =
+                "";
+
+
+            renderIA();
+
+
+            status.textContent =
+                "La IA está pensando...";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        IA_URL,
+                        {
+
+                            method:
+                                "POST",
+
+                            headers:
+                                {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                            body:
+                                JSON.stringify({
+
+                                    message:
+                                        message,
+
+                                    history:
+                                        iaHistory
+                                            .slice(
+                                                0,
+                                                -1
+                                            )
+
+                                })
+
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    !response.ok
+                ) {
+
+                    throw new Error(
+                        data.error ||
+                        "Error de la IA."
+                    );
+
+                }
+
+
+                iaHistory.push({
+
+                    role:
+                        "assistant",
+
+                    content:
+                        data.response ||
+                        "La IA no devolvió ninguna respuesta."
+
+                });
+
+
+                status.textContent =
+                    "";
+
+
+                renderIA();
+
+
+            } catch (error) {
+
+                console.error(
+                    "HYISX IA:",
+                    error
+                );
+
+
+                iaHistory.push({
+
+                    role:
+                        "assistant",
+
+                    content:
+                        "No se pudo conectar con la IA."
+
+                });
+
+
+                status.textContent =
+                    "Error de conexión.";
+
+
+                renderIA();
+
+            }
+
+
+            iaSending =
+                false;
+
+
+            input.disabled =
+                false;
+
+
+            sendButton.disabled =
+                false;
+
+
+            input.focus();
+
+        }
+
+
+        window.sendIA =
+            sendIA;
+
+
+        window.deleteIAConversation =
+            function () {
+
+                iaHistory =
+                    [];
+
+
+                document
+                    .getElementById(
+                        "iaStatus"
+                    )
+                    .textContent =
+                        "";
+
+
+                renderIA();
+
+
+                document
+                    .getElementById(
+                        "iaInput"
+                    )
+                    .focus();
 
             };
 
@@ -5980,6 +6890,30 @@
             );
 
 
+        document
+            .getElementById(
+                "iaInput"
+            )
+            .addEventListener(
+                "keydown",
+                event => {
+
+                    if (
+                        event.key ===
+                        "Enter" &&
+                        !event.shiftKey
+                    ) {
+
+                        event.preventDefault();
+
+                        sendIA();
+
+                    }
+
+                }
+            );
+
+
         /* =====================================================
            INITIAL RENDER
         ===================================================== */
@@ -5990,7 +6924,10 @@
 
         renderFolders();
 
+        renderIA();
+
     </script>
 
 </body>
 </html>
+
